@@ -1,0 +1,20 @@
+We are a team aspiring to flip the script at the hackathon by offering teams the ability to issue an ERC20 token that represents the pool of their prize winnings (from sponsors prizes and others). These ERC20 tokens can then be distributed as bounty rewards or as a tool for speculation. Additionally, we will be building a stack of applications like a swiss army knife, helping hackers speed up their work with custom built tools based on feedback.
+
+This teams members consist of:
+@Wedergarten Full stack developer - head
+@devv Full stack developer - lead
+@icetoad.eth Community manager, onboarder public relations
+
+Project Schedule:
+Team finalization and plan creation commencement - 6PM
+Hacking comencement - 8PM
+Draft version of ERC20 launch platform - 10PM
+Deployment final version and public launch at h4ckit.xyz- 12PM
+Team Sleeps until 8-9AM
+Morning announcement from server and hopefully from hackathon - 9AM
+Phase 2 begins (Multitool creation)
+4 sponsor targeted tools complete - 4PM (1hr 45mins intital work)
+Lookover and improvements for up to 8-9 tools - 8PM (4hr)
+Presentation plan - 12PM to 1AM
+Devs sleep until presentations and judging
+End
