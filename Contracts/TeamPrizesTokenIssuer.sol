@@ -19,6 +19,8 @@ contract TeamPrizesTokenIssuer{
 
 }
 
+contract 
+
 contract Token {
     uint256 public tokenCap;
     uint256 public totalSupply;
