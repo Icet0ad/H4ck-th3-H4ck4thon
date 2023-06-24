@@ -359,11 +359,9 @@ async function deployToken() {
     console.log(teamName)
     console.log(tokenSymbol)
     await teamTokensContract.addTeam(teamName,tokenSymbol,"")
-
 }
 
 async function getBalance() {
     let amount = await tokenContract.balanceOf(signer.address)
     document.getElementById("tokenLabel").innerHTML = amount + " Tokens"
 }
-
