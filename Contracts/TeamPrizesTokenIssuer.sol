@@ -19,6 +19,8 @@ contract H4ckIt_Core{
         ListedTeams.push(NewTeam);
     }
 
+    function 
+
 }
 
 contract H4ckIt_Team{
