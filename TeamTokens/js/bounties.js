@@ -605,7 +605,6 @@ function createBountiesDiv(bountiesArray) {
   
       // Add information about the bounty to the div
       bountyDiv.innerHTML = `
-        <h3>Bounty ID: ${bounty.ID}</h3>
         <p>Payout: ${bounty.Payout}</p>
         <p>Status: ${bounty.Open ? 'Open' : 'Closed'}</p>
         <p>Description: ${bounty.Description}</p>
