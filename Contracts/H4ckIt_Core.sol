@@ -25,7 +25,7 @@ contract H4ckIt_Core{
     }
 
     function ListTeams(string memory TeamName, string memory TeamSymbol, string memory Discord) public returns(address NewToken){
-        address NewERC20 = address(new H4ckIt_Team(TeamName, TeamSymbol, Discord, msg.sender));
+        address NewHackIt = address(new H4ckIt_Team(TeamName, TeamSymbol, Discord, msg.sender));
         TeamListing memory NewTeam = TeamListing(TeamName, TeamSymbol,Discord, msg.sender, NewERC20);
         IsTeamContact
 
