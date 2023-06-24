@@ -28,7 +28,7 @@ contract H4ckIt_Core{
     }
 
     function AddTeams(string memory TeamName, string memory TeamSymbol, string memory Discord) public returns(address NewTeamAddress){
-        require(HasCreatedTeam[msg.sender]);
+        require(HasCreatedTeam[msg.sender] == false);
 
         address NewH4ckIt = address(new H4ckIt_Team(TeamName, TeamSymbol, Discord, msg.sender));
         TeamInfo memory NewTeam = TeamInfo(TeamName, TeamSymbol,Discord, msg.sender, NewH4ckIt);
