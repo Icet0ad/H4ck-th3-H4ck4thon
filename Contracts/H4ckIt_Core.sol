@@ -93,7 +93,7 @@ contract H4ckIt_Team{
 
     // function ApplyToBounty()
 
-    function PayoutBounty
+    // function PayoutBounty()
 
 }
 
