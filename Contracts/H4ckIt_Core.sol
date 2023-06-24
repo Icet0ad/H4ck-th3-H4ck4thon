@@ -91,7 +91,7 @@ contract H4ckIt_Team{
         Bounty memory NewBounty;
         Token(ERC20).transferFrom(msg.sender, address(this), TokenAmount);
 
-        NewBounty.ID = (BountyList.length + 1);
+        NewBounty.ID = BountyList.length;
         NewBounty.Description = Description;
 
         BountyIndex[NewBounty.ID] = NewBounty;
@@ -102,7 +102,7 @@ contract H4ckIt_Team{
     }
 
      function ApplyToBounty(uint256 ID, string memory InitialMessage) public returns(bool success){
-        
+
         return(success)
      }
 
