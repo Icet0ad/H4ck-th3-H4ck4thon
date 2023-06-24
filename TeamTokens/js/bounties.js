@@ -579,7 +579,10 @@ async function signIn() {
 
 async function LoadBounties() {
     let ArrayLoaded = false;
-    while(ArrayLoaded)
+    let index = 0;
+    while(!ArrayLoaded){
+
+    }
 }
 
 async function initTeamTokens() {
