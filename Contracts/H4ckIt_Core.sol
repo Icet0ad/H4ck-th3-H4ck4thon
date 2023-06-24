@@ -29,10 +29,10 @@ contract H4ckIt_Core{
         ListedTeams.push(NewTeam);
     }
 
-    function ListedTeamsArray() public view returns(TeamListing[]){
+    function ListedTeamsArray() public view returns(TeamListing[] memory){
         return(ListedTeams);
     }
-    function AllBountiesArray() public view returns(Bounty[]){
+    function AllBountiesArray() public view returns(Bounty[] memory){
         return(AllBounties);
     }
 
