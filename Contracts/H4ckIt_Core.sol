@@ -73,7 +73,6 @@ contract H4ckIt_Team{
 
     struct Bounty{
         string Description;
-        mapping(address => bool) AppliedBefore;
         Application[] Applications;
     }
 
@@ -81,7 +80,7 @@ contract H4ckIt_Team{
         Bounty storage NewBounty;
 
         NewBounty.Description = Description;
-        
+
 
         
         return(success);
