@@ -637,7 +637,9 @@ function createBountiesDiv(bountiesArray) {
     return etherAmount.toString();
   }
 
-  async function Apply(addre)
+  async function Apply(address, ID){
+        CurrentHackItTeam
+  }
   
 
 async function initTeamTokens() {
