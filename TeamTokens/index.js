@@ -339,7 +339,7 @@ async function initToken(){
 }
 
 async function initTeamTokens() {
-    teamTokensContract = new ethers.Contract(teamTokensContractAddress, coreABI, signer)
+    teamTokensContract = new ethers.Contract(teamTokensContractAddress, teamTokenABI, signer)
 }
 
 async function getAddress() {
@@ -358,7 +358,7 @@ async function deployToken() {
     let tokenSymbol = document.getElementById("tokenSymbolInput").value
     console.log(teamName)
     console.log(tokenSymbol)
-    await teamTokensContract.AddTeams(teamName,tokenSymbol,"")
+    await teamTokensContract.AddTeam(teamName,tokenSymbol,"")
 
 }
 
