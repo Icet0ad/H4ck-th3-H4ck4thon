@@ -600,7 +600,7 @@ function createBountiesDiv(bountiesArray) {
       const bounty = bountiesArray[i];
   
       // Create a div element for the bounty
-      const bountyDiv = document.createElement('div');
+      const bountyDiv = document.createElement('box');
       bountyDiv.classList.add('bounty-box');
       bountyDiv.id = bounty.ID;
   
