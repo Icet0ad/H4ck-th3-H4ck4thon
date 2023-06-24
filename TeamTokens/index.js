@@ -294,10 +294,10 @@ async function getEthBalance() {
 }
 
 async function deployToken() {
-    let teanMane =  document.getElementById("teamNameInput").value 
+    let teamName =  document.getElementById("teamNameInput").value 
     let tokenSymbol = document.getElementById("tokenSymbolInput").value
-    console.log("team name")
-    console.log("token Name")
+    console.log(teamName)
+    console.log(tokenSymbol)
 
 }
 
