@@ -392,7 +392,7 @@ async function deployToken() {
         await HackItCore.AddTeams(teamName,tokenSymbol,Discord);
     }
     catch(err){
-        alert()
+        alert("You already created a team!")
     }
 }
 
