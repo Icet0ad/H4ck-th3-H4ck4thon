@@ -14,7 +14,7 @@ contract H4ckIt_Core{
         string TeamSymbol;
         string Discord;
         address Operator;
-        address ERC20;
+        address H4ckIt_Team_Contract;
     }
 
     struct Bounty{
