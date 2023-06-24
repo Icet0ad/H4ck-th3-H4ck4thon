@@ -388,7 +388,9 @@ async function deployToken() {
     let Discord = document.getElementById("DiscordServerInput").value
     console.log(teamName)
     console.log(tokenSymbol);
-    await HackItCore.AddTeams(teamName,tokenSymbol,Discord);
+    try{
+        await HackItCore.AddTeams(teamName,tokenSymbol,Discord);
+    }
 }
 
 async function getBalance() {
