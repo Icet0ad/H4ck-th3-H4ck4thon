@@ -569,7 +569,7 @@ async function signIn() {
             document.getElementById('signInButton').innerText = "Connected"
             document.getElementById('bounties').innerHTML = '';
             await initTeamTokens()
-            await LoadBounties()
+        
 
 
         } else {
