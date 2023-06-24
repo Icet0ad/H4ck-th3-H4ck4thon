@@ -563,7 +563,7 @@ async function signIn() {
 
             signer = await provider.getSigner();
 
-            document.getElementById('signInButton').innerText
+            document.getElementById('signInButton').innerText = "Connected"
             await initTeamTokens()
 
         } else {
