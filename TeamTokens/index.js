@@ -364,11 +364,11 @@ async function signIn() {
 }
 
 async function initToken(){
-    HackItCore = new ethers.Contract(tokenContractAddress, erc20ABI, provider);
+    tokenContract = new ethers.Contract(tokenContractAddress, erc20ABI, provider);
 }
 
 async function initTeamTokens() {
-    teamTokensContract = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
+    HackItCore = new ethers.Contract(teamTokensContractAddress, window.CoreABI, signer)
 }
 
 async function getAddress() {
