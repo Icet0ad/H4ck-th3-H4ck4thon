@@ -51,7 +51,6 @@ contract H4ckIt_Team{
 
     struct Bounty{
         string Description;
-        string Discord;
         mapping(address => bool) AppliedBefore;
         Application[] Applications;
     }
