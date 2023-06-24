@@ -401,26 +401,17 @@ async function getTeamTokens(){
     teamTokens.forEach(async (tokenAddress) => {
         const tokenInfo = await teamTokensContract.teams(tokenAddress);
     
-        // Create new HTML elements
-        let div = document.createElement('div');
-        let h1 = document.createElement('h1');
-        let p = document.createElement('p');
-        let emptyP = document.createElement('p');
-        let addrP = document.createElement('p');
-    
-        // Assign data to elements
-        h1.textContent = tokenInfo[0];  // assuming this is a title
-        p.textContent = tokenInfo[1];  // assuming this is a description
-        addrP.textContent = tokenInfo[3];  // assuming this is an address
-    
-        // Append elements to div
-        div.appendChild(h1);
-        div.appendChild(p);
-        div.appendChild(emptyP);  // empty paragraph for spacing
-        div.appendChild(addrP);
-    
-        // Append div to body (or another existing HTML element)
-        document.body.appendChild(div);
-    });
+    // Create new HTML elements
+    let div = document.createElement('div');
+    let p = document.createElement('p');
+
+    // Assign data to elements
+    p.textContent = `Name: ${tokenInfo[0]}, Description: ${tokenInfo[1]}, Address: ${tokenInfo[3]}`;
+
+    // Append elements to div
+    div.appendChild(p);
+
+    // Append div to body (or another existing HTML element)
+    document.body.appendChild(div);
     
 }
