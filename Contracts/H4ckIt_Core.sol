@@ -107,6 +107,8 @@ contract H4ckIt_Team{
         return(success);
     }
 
+    function CloseBounty(uint256)
+
      function ApplyToBounty(uint256 ID, string memory InitialMessage, string memory UserDiscord) public returns(bool success){
         require(AppliedBefore[ID][msg.sender] == false);
 
