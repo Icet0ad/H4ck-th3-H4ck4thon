@@ -7,6 +7,7 @@ contract TeamPrizesTokenIssuer{
     struct TeamListing{
         string TeamName;
         string TeamSymbol;
+        string Discord;
         address Operator;
         address ERC20;
     }
