@@ -228,13 +228,73 @@ let erc20ABI = [
     }
 ]
 
-let coreABI = [{"inputs":[{"internalType":"uint256","name":"ID","type":"uint256"},{"internalType":"string","name":"Description","type":"string"},{"internalType":"address","name":"H4ckItTeam","type":"address"},{"internalType":"uint256","name":"Payout","type":"uint256"}],"name":"AddNewBounty","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"TeamName","type":"string"},{"internalType":"string","name":"TeamSymbol","type":"string"},{"internalType":"string","name":"Discord","type":"string"}],"name":"AddTeams","outputs":[{"internalType":"address","name":"NewTeamAddress","type":"address"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"AllBountiesArray","outputs":[{"components":[{"internalType":"uint256","name":"ID","type":"uint256"},{"internalType":"uint256","name":"Payout","type":"uint256"},{"internalType":"bool","name":"Open","type":"bool"},{"internalType":"string","name":"Description","type":"string"},{"internalType":"string","name":"Discord","type":"string"},{"internalType":"address","name":"H4ckIt_Team_Contract","type":"address"}],"internalType":"struct H4ckIt_Core.Bounty[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"ID","type":"uint256"}],"name":"CloseBounty","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"HasCreatedTeam","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"}],"name":"IDIndexer","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"IsTeamContact","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"ListedTeams","outputs":[{"internalType":"string","name":"TeamName","type":"string"},{"internalType":"string","name":"TeamSymbol","type":"string"},{"internalType":"string","name":"Discord","type":"string"},{"internalType":"address","name":"Operator","type":"address"},{"internalType":"address","name":"H4ckIt_Team_Contract","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"ListedTeamsArray","outputs":[{"components":[{"internalType":"string","name":"TeamName","type":"string"},{"internalType":"string","name":"TeamSymbol","type":"string"},{"internalType":"string","name":"Discord","type":"string"},{"internalType":"address","name":"Operator","type":"address"},{"internalType":"address","name":"H4ckIt_Team_Contract","type":"address"}],"internalType":"struct H4ckIt_Core.TeamInfo[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"}]
-
+let teamTokenABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "TeamName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "TeamSymbol",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Discord",
+				"type": "string"
+			}
+		],
+		"name": "addTeam",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getTeamTokens",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "IDIndexer",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
 let tokenContract
 let tokenContractAddress = "0x92e52a1A235d9A103D970901066CE910AAceFD37" 
 
-let coreContract
-let coreContractAddress = "0x493fd82d18a17cf90a357aad6a4c5b3d352427b0"
+let teamTokensContract
+let teamTokensContractAddress = "0xF02E24F7Ac2eF5f455A67068372695b4F0f3FA41"
 
 
 async function signIn() {
@@ -262,7 +322,7 @@ async function signIn() {
             await getEthBalance()
             await initToken()
             //await getBalance()
-            await initCore()
+            await initTeamTokens()
 
         } else {
             console.log('Please install MetaMask!');
@@ -278,8 +338,8 @@ async function initToken(){
     tokenContract = new ethers.Contract(tokenContractAddress, erc20ABI, provider);
 }
 
-async function initCore() {
-    coreContract = new ethers.Contract(coreContractAddress, coreABI, signer)
+async function initTeamTokens() {
+    teamTokensContract = new ethers.Contract(teamTokensContractAddress, coreABI, signer)
 }
 
 async function getAddress() {
@@ -298,7 +358,7 @@ async function deployToken() {
     let tokenSymbol = document.getElementById("tokenSymbolInput").value
     console.log(teamName)
     console.log(tokenSymbol)
-    await coreContract.AddTeams(teamName,tokenSymbol,"")
+    await teamTokensContract.AddTeams(teamName,tokenSymbol,"")
 
 }
 
