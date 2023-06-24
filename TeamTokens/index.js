@@ -385,7 +385,7 @@ async function getEthBalance() {
 async function deployToken() {
     let teamName =  document.getElementById("teamNameInput").value 
     let tokenSymbol = document.getElementById("tokenSymbolInput").value
-    let Discord = document.getElementById("Discord")
+    let Discord = document.getElementById("DiscordServerInput").value
     console.log(teamName)
     console.log(tokenSymbol)
     await teamTokensContract.addTeam(teamName,tokenSymbol,"")
