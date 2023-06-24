@@ -28,9 +28,12 @@ contract H4ckIt_Core{
     }
 
     function AddTeams(string memory TeamName, string memory TeamSymbol, string memory Discord) public returns(address NewTeamAddress){
+
+        
         address NewH4ckIt = address(new H4ckIt_Team(TeamName, TeamSymbol, Discord, msg.sender));
         TeamInfo memory NewTeam = TeamInfo(TeamName, TeamSymbol,Discord, msg.sender, NewH4ckIt);
         IsTeamContact[NewH4ckIt] = true;
+        HasCreatedTeam[msg.sender] = true;
 
         ListedTeams.push(NewTeam);
 
