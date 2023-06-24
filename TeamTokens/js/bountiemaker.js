@@ -585,7 +585,7 @@ async function signIn(truth) {
     return etherAmount.toString();
   }
 
-  CreateBounty
+async
   
 
 async function initTeamTokens() {
