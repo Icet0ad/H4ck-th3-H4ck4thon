@@ -397,5 +397,10 @@ async function getBalance() {
 
 async function getTeamTokens(){
     let teamTokens = await teamTokensContract.getTeamTokens()
+    // Then, for each team token, we get its info and log it
+    teamTokens.forEach(async (tokenAddress) => {
+      const tokenInfo = await teamTokensContract.teams(tokenAddress);
+      console.log(tokenInfo);
+    });
     
 }
