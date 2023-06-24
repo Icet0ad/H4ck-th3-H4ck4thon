@@ -580,10 +580,6 @@ async function signIn() {
     }
 }
 
-async function initToken(){
-    tokenContract = new ethers.Contract(tokenContractAddress, erc20ABI, provider);
-}
-
 async function initTeamTokens() {
     HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
 }
@@ -597,20 +593,6 @@ async function getEthBalance() {
     let balance = await provider.getBalance(signer.address)
     balance = ethers.formatEther(balance)
     document.getElementById("ethBalanceLabel").innerHTML = "xDAI Balance: " + balance
-}
-
-async function deployToken() {
-    let teamName =  document.getElementById("teamNameInput").value 
-    let tokenSymbol = document.getElementById("tokenSymbolInput").value
-    let Discord = document.getElementById("DiscordServerInput").value
-    console.log(teamName)
-    console.log(tokenSymbol);
-    try{
-        await HackItCore.AddTeams(teamName,tokenSymbol,Discord);
-    }
-    catch(err){
-        alert("You already created a team!")
-    }
 }
 
 async function getBalance() {
