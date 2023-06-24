@@ -643,7 +643,7 @@ async function Apply(address, ID){
     if(Discord == ''){
         alert("Enter your discord username to apply so teams can contact you")
     }
-    CurrentHackItTeam.ApplyToBounty(ID, "Interested!", )
+    CurrentHackItTeam.ApplyToBounty(ID, "Interested!", Discord);
 }
   
 
