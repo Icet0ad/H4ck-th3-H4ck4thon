@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                background-color: #abff9e;
+            }
+            nav {
+                background-color: #f2f2f2;
+                height: 60px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px;
+                border-radius: 30px;
+            }
+
+            .logo img {
+                height: 40px;
+                padding-right: 10px;
+            }
+
+            .navbar-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+            }
+
+            .navbar-list li {
+                margin-right: 20px;
+            }
+
+            .navbar-list li a {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+            }
+
+            .navbar-list li a:hover {
+                color: #666;
+            }
+            
+            form, .button-container,div {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                max-width: 400px; /* You can adjust this value to suit your needs */
+                margin: 0 auto;
+            }
+            button, input {
+                width: 100%;
+                box-sizing: border-box;
+                margin-bottom: 1em;
+                padding: .5em;
+                border-radius: 10px; /* This is the border radius */
+            }
+        </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.3.0/ethers.umd.min.js" charset="utf-8" type="text/javascript"></script>
+
+    </head>
+    <h1>H4ck th3 H4ck4th0n</h1>
+    <nav>
+        <div style="width: min-content;" class="logo">
+            <img href="/" style="max-width: 65px; min-height: 65px; " src="https://storage.googleapis.com/ethglobal-api-production/projects%2Ffcpr4%2Fimages%2Flogo.png" alt="Logo">
+        </div>
+        <ul class="navbar-list">
+            <li><a href="/issuer">Token Issuer</a></li>
+            <li><a href="#">Token Management</a></li>
+            <li><a href="#">Bounties</a></li>
+        </ul>
+    </nav>
+    <body>
+        <div class="button-container">
+            <h3>Wallet</h3>
+            <button id="signInButton" onclick="signIn()">
+                Sign In
+            </button>
+        </div>
+        <br>
+        <div>
+            <label id="addressLabel"></label><br>
+            <label id="ethBalanceLabel"></label>
+        </div>    
+
+        <hr>
+
+        <h3>Deploy Team Token</h3>
+      <div id="tokenDiv">
+            <input id="teamNameInput" placeholder="Team Name"></input> <br>
+            <input id="tokenSymbolInput" placeholder="Token Symbol"></input> <br>
+            <input id="DiscordServerInput" placeholder="Team public discord server"></input> <br>
+            <button id="deployButton" onclick="deployToken()">
+                Deploy
+            </button>
+        </div>
+
+    </body>
+    <script src="js/abi.js"></script>
+    <script src="js/bounties.js"></script>
+</html>
