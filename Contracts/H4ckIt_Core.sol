@@ -77,7 +77,7 @@ contract H4ckIt_Team{
         Application[] Applications;
     }
 
-    function CreateBounty(string memory Description) public {
+    function CreateBounty(string memory Description) public returns(bool success){
 
     }
 
