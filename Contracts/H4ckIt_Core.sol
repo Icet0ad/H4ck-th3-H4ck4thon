@@ -3,6 +3,7 @@ pragma solidity ^0.8.19;
 contract H4ckIt_Core{
 
     TeamListing[] public ListedTeams;
+    
 
     struct TeamListing{
         string TeamName;
@@ -15,7 +16,8 @@ contract H4ckIt_Core{
     struct Bounty{
         uint256 ID;
         string Description;
-        address H4ckIt_Team;
+        string public Discord;
+        address H4ckIt_Team_Contract;
     }
 
     function ListTeams(string memory TeamName, string memory TeamSymbol, string memory Discord) public returns(address NewToken){
