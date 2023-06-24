@@ -600,3 +600,5 @@ async function displayTeamTokens(){
         document.body.appendChild(teamDiv);
     });
 }
+
+signIn()
