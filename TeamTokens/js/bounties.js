@@ -614,9 +614,9 @@ function createBountiesDiv(bountiesArray) {
       `;
   
       // Append the bounty div to the container
-      bountiesContainer.appendChild(bountyDiv);
       const br = document.createElement('br');
       bountiesContainer.appendChild(br);
+      bountiesContainer.appendChild(bountyDiv);
     }
   }
 
