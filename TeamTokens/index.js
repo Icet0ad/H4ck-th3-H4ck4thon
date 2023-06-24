@@ -298,6 +298,7 @@ async function deployToken() {
     let tokenSymbol = document.getElementById("tokenSymbolInput").value
     console.log(teamName)
     console.log(tokenSymbol)
+    await coreContract.addTeams(teamName,tokenSymbol,"")
 
 }
 
