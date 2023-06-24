@@ -95,7 +95,7 @@ contract H4ckIt_Team{
 
         BountyIndex[NewBounty.ID] = NewBounty;
         BountyList.push(NewBounty);
-        H4ckIt_Core(Core).AddNewBounty(NewBounty.ID, Description, address(this));
+        H4ckIt_Core(Core).AddNewBounty(NewBounty.ID, Description, address(this), TokenAmount);
 
         return(success);
     }
