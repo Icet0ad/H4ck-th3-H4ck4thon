@@ -565,6 +565,7 @@ async function signIn() {
 
             await getAddress()
             await getEthBalance()
+            await initTeamTokens()
 
         } else {
             console.log('Please install MetaMask!');
