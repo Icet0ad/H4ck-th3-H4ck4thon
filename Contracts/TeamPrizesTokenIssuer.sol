@@ -12,9 +12,9 @@ contract TeamPrizesTokenIssuer{
         address ERC20;
     }
 
-    function ListTeams(string memory TeamName, string memory TeamSymbol) public returns(address NewToken){
+    function ListTeams(string memory TeamName, string memory TeamSymbol string memory Discord) public returns(address NewToken){
         address NewERC20 = address(new Token(10000000000000000000000, TeamName, TeamSymbol));
-        TeamListing memory NewTeam = TeamListing(TeamName, TeamSymbol, msg.sender, NewERC20);
+        TeamListing memory NewTeam = TeamListing(TeamName, TeamSymbol, msg.sender, NewERC20,Discord);
 
         ListedTeams.push(NewTeam);
     }
