@@ -33,7 +33,7 @@ contract H4ckIt_Core{
         return(ListedTeams);
     }
     function AllBountiesArray() public view returns(Bounty[]){
-        return(ListedTeams);
+        return(AllBounties);
     }
 
     function AddNewBounty(uint256 ID, string memory Description, address H4ckItTeam) public returns(bool success){
