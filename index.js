@@ -277,7 +277,10 @@ async function getAddress() {
 }
 
 async function getEthBalance() {
-    document.getAnimations("ethBalanceLabel").innerHTML = "xDAI Balance: " + await provider.getBalance(signer.address)
+    console.log("getEthBalance")
+    let balance = await provider.getBalance(signer.address)
+    balance = ethers.formatEther(balance)
+    document.getElementById("ethBalanceLabel").innerHTML = "xDAI Balance: " + balance
 }
 
 async function getBalance() {
