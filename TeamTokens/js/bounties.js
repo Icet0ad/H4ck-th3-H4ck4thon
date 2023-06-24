@@ -578,7 +578,7 @@ async function signIn() {
 }
 
 async function LoadBounties() {
-    Bounties = await HackItCore.AllBountiesArray();
+    Bounties = await HackItCore.AllBountiesArray().then;
     console.log(Bounties);
 }
 
