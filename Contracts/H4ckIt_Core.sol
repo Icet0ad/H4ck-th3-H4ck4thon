@@ -47,7 +47,7 @@ contract H4ckIt_Core{
         return(success);
     }
 
-    // function CloseBounty()
+     function CloseBounty() public returns
 
 }
 
@@ -113,7 +113,7 @@ contract H4ckIt_Team{
         require(msg.sender == Operator);
 
         Token(ERC20).transfer(BountyList[BountyID].Applications[ApplicationID], BountyList[BountyID].Payout);
-        
+
 
         return(success);
      }
