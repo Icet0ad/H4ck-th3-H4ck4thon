@@ -368,7 +368,7 @@ async function initToken(){
 }
 
 async function initTeamTokens() {
-    HackItCore = new ethers.Contract(teamTokensContractAddress, window.CoreABI, signer)
+    HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
 }
 
 async function getAddress() {
@@ -388,7 +388,7 @@ async function deployToken() {
     let Discord = document.getElementById("DiscordServerInput").value
     console.log(teamName)
     console.log(tokenSymbol);
-    await teamTokensContract.addTeam(teamName,tokenSymbol,Discord);
+    await teamTokensContract.AddTeams(teamName,tokenSymbol,Discord);
 }
 
 async function getBalance() {
