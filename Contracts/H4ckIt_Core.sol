@@ -79,7 +79,7 @@ contract H4ckIt_Team{
     }
 
     function CreateBounty(string memory Description) public returns(bool success){
-        require();
+        require(msg.sender == Operator);
         Bounty memory NewBounty;
 
         NewBounty.ID = (BountyList.length + 1);
@@ -91,7 +91,7 @@ contract H4ckIt_Team{
         return(success);
     }
 
-    funct
+    function 
 
 }
 
