@@ -352,6 +352,7 @@ async function signIn() {
             await initToken()
             //await getBalance()
             await initTeamTokens()
+            await displayTeamTokens()
 
         } else {
             console.log('Please install MetaMask!');
@@ -396,46 +397,25 @@ async function getBalance() {
     document.getElementById("tokenLabel").innerHTML = amount + " Tokens"
 }
 
-async function getTeamTokens(){
-    let teamTokens = await HackItCore.getTeamTokens()
-
-  // Create a table and a header row
-  let table = document.createElement('table');
-  let headerRow = document.createElement('tr');
-  
-  ['Team', 'Symbol', 'Address'].forEach(headerText => {
-    let th = document.createElement('th');
-    th.textContent = headerText;
-    headerRow.appendChild(th);
-  });
-
-  table.appendChild(headerRow);
-
-  // Then, for each team token, we get its info and create a table row
-  teamTokens.forEach(async (tokenAddress) => {
-    const tokenInfo = await HackItCore.teams(tokenAddress);
+async function displayTeamTokens(){
+    const teams = await HackItCore.ListedTeamsArray();
     
-    // Create a new row and cells for the data
-    let row = document.createElement('tr');
-    let teamCell = document.createElement('td');
-    let symbolCell = document.createElement('td');
-    let addressCell = document.createElement('td');
-
-    // Assign data to cells
-    teamCell.textContent = tokenInfo[0];
-    symbolCell.textContent = tokenInfo[1];
-    addressCell.textContent = tokenInfo[3];
-
-    // Append cells to row
-    row.appendChild(teamCell);
-    row.appendChild(symbolCell);
-    row.appendChild(addressCell);
-
-    // Append row to table
-    table.appendChild(row);
-  });
-
-  // Append table to body (or another existing HTML element)
-  document.body.appendChild(table);
-    
+    // Loop through each team
+    teams.forEach((team, index) => {
+        // Create a new div element
+        const teamDiv = document.createElement('div');
+        
+        // Set the content of the div
+        teamDiv.innerHTML = `
+            <h2>Team ${index + 1}</h2>
+            <p>Team Name: ${team[0]}</p>
+            <p>Team's Domain: ${team[1]}</p>
+            <p>Discord Link: ${team[2]}</p>
+            <p>Ethereum address 1: ${team[3]}</p>
+            <p>Ethereum address 2: ${team[4]}</p>
+        `;
+        
+        // Append the new div to the end of the body
+        document.body.appendChild(teamDiv);
+    });
 }
