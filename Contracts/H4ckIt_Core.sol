@@ -53,7 +53,7 @@ contract H4ckIt_Core{
      function CloseBounty(uint256 ID) public returns(bool success){
         require(IsTeamContact[msg.sender] == true);
 
-        AllBounties[IDIndexer[msg.sender][ID]].Op
+        AllBounties[IDIndexer[msg.sender][ID]].Open = false;
      }
 
 }
@@ -120,7 +120,6 @@ contract H4ckIt_Team{
         require(msg.sender == Operator);
 
         Token(ERC20).transfer(BountyList[BountyID].Applications[ApplicationID], BountyList[BountyID].Payout);
-
 
         return(success);
      }
