@@ -32,6 +32,7 @@ contract H4ckIt_Team{
 
     constructor(string memory _TeamName, string memory _TeamSymbol, string memory _Discord, address _Operator){
         ERC20 = address(new Token(10000000000000000000000, TeamName, TeamSymbol));
+        TeamName = _TeamName;
         
     }
 
