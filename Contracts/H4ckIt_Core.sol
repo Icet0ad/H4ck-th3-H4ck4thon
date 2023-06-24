@@ -44,19 +44,6 @@ contract H4ckIt_Core{
     function AddNewBounty(uint256 ID, string memory Description, address H4ckItTeam, uint256 Payout) public returns(bool success){
         require(IsTeamContact[msg.sender] == true);
 
-        Application[] memory applications; // Initialize an empty array of type `Application[]`
-
-        Bounty memory newBounty; // Create a new `Bounty` instance
-
-        // Assign values to the struct members individually
-        newBounty.ID = ID;
-        newBounty.Payout = Payout;
-        newBounty.Open = true;
-        newBounty.Description = Description;
-        newBounty.Discord = H4ckIt_Team(H4ckItTeam).Discord();
-        newBounty.H4ckIt_Team_Contract = H4ckItTeam;
-        newBounty.Applications = applications;
-
         AllBounties.push(Bounty(ID, Payout, true, Description, H4ckIt_Team(H4ckItTeam).Discord(), H4ckItTeam));
 
         IDIndexer[H4ckItTeam][ID] = AllBounties.length - 1;
