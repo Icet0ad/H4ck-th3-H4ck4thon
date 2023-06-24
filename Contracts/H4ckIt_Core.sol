@@ -55,6 +55,7 @@ contract H4ckIt_Team{
     address public ERC20;
 
     mapping(uint256 => Bounty) public BountyIndex;
+    mapping(address => bool) AppliedBefore;
     Bounty[] public BountyList;
 
     constructor(string memory _TeamName, string memory _TeamSymbol, string memory _Discord, address _Operator){
@@ -73,6 +74,7 @@ contract H4ckIt_Team{
 
     struct Bounty{
         string Description;
+        mapping(address => bool) AppliedBefore;
         Application[] Applications;
     }
 
@@ -80,7 +82,7 @@ contract H4ckIt_Team{
         Bounty storage NewBounty;
 
         NewBounty.Description = Description;
-
+        
 
         
         return(success);
