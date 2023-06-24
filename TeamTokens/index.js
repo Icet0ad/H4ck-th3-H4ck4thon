@@ -388,7 +388,7 @@ async function deployToken() {
     let Discord = document.getElementById("DiscordServerInput").value
     console.log(teamName)
     console.log(tokenSymbol)
-    await teamTokensContract.addTeam(teamName,tokenSymbol,"")
+    await teamTokensContract.addTeam(teamName,tokenSymbol,Discord)
 }
 
 async function getBalance() {
