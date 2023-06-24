@@ -584,6 +584,8 @@ async function signIn(truth) {
     const etherAmount = BigInt(weiAmount) / BigInt(10 ** 18);
     return etherAmount.toString();
   }
+
+  CreateBounty
   
 
 async function initTeamTokens() {
