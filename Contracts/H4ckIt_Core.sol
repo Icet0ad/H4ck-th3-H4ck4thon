@@ -56,7 +56,7 @@ contract H4ckIt_Team{
         Application[] Applications;
     }
 
-    function CreateBounty(Dis)
+    function CreateBounty()
 
 }
 
