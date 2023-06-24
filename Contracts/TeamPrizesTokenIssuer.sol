@@ -24,8 +24,11 @@ contract H4ckIt_Team{
     address public Operator;
     address public ERC20;
 
+    mapping()
+
     struct Bounty{
-        
+        uint256 ID;
+
     }
 
 }
