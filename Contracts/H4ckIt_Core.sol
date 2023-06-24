@@ -5,7 +5,7 @@ contract H4ckIt_Core{
     TeamListing[] public ListedTeams;
     Bounty[] AllBounties;
 
-    mapping(address => bool) 
+    mapping(address => bool) H4ckIt_Team
 
     struct TeamListing{
         string TeamName;
