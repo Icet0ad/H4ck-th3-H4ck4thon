@@ -50,10 +50,10 @@ contract H4ckIt_Core{
         return(success);
     }
 
-     function CloseBounty() public returns(bool success){
+     function CloseBounty(uint256 ID) public returns(bool success){
         require(IsTeamContact[msg.sender] == true);
 
-        IDIndexer[msg.sender]
+        IDIndexer[msg.sender][ID]
      }
 
 }
