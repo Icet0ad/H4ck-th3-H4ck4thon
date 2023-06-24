@@ -20,7 +20,7 @@ contract H4ckIt_Core{
     }
 
     function ListedTeamsArray() public view returns(TeamListing[]){
-        return
+        return(ListedTeams);
     }
 
 }
