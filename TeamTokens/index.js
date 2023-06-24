@@ -387,7 +387,7 @@ async function deployToken() {
     let tokenSymbol = document.getElementById("tokenSymbolInput").value
     let Discord = document.getElementById("DiscordServerInput").value
     console.log(teamName)
-    console.log(tokenSymbol)
+    console.log(tokenSymbol);
     await teamTokensContract.addTeam(teamName,tokenSymbol,Discord)
 }
 
