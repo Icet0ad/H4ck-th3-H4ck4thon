@@ -33,7 +33,7 @@ contract H4ckIt_Core{
         return(ListedTeams);
     }
 
-    function Add
+    function AddNewBounty()
 
 }
 
