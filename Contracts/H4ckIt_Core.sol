@@ -14,7 +14,8 @@ contract H4ckIt_Core{
 
     struct Bounty{
         string Description;
-        address H
+        address H4ckIt_Team;
+        uint256 ID;
     }
 
     function ListTeams(string memory TeamName, string memory TeamSymbol, string memory Discord) public returns(address NewToken){
