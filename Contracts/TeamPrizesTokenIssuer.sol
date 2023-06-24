@@ -1,5 +1,4 @@
-//SPDX-License-Identifier:UNLICENSE
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.20;
 
 contract TeamPrizesTokenIssuer{
 
@@ -11,12 +10,16 @@ contract TeamPrizesTokenIssuer{
         address ERC20;
     }
 
-    function ListTeams(string memory TeamName) public returns(address NewERC20){
+    function ListTeams(string memory TeamName, string memory TeamSymbol) public returns(address NewToken){
+        address NewERC20 = address(new Token(10000000000000000000000, TeamName, TeamSymbol));
+        TeamListing memory NewTeam = TeamListing(TeamName, msg.sender, NewERC20);
 
+        ListedTeams.push(NewTeam);
     }
+
 }
 
-ontract Token {
+contract Token {
     uint256 public tokenCap;
     uint256 public totalSupply;
     string public name;
