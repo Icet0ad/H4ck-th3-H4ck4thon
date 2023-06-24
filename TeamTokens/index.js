@@ -413,5 +413,6 @@ async function getTeamTokens(){
 
     // Append div to body (or another existing HTML element)
     document.body.appendChild(div);
+    });
     
 }
