@@ -261,7 +261,8 @@ async function signIn() {
             await getAddress()
             await getEthBalance()
             await initToken()
-            await getBalance()
+            //await getBalance()
+            await initCore()
 
         } else {
             console.log('Please install MetaMask!');
