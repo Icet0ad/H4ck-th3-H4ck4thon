@@ -570,7 +570,7 @@ async function signIn(truth) {
             document.getElementById('bounties').innerHTML = '';
             await initTeamTokens()
             if(truth){
-                LoadBounties();
+                await LoadBounties();
             }
 
 
