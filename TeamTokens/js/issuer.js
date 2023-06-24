@@ -618,27 +618,4 @@ async function getBalance() {
     document.getElementById("tokenLabel").innerHTML = amount + " Tokens"
 }
 
-async function displayTeamTokens(){
-    const teams = await HackItCore.ListedTeamsArray();
-    
-    // Loop through each team
-    teams.forEach((team, index) => {
-        // Create a new div element
-        const teamDiv = document.createElement('div');
-        
-        // Set the content of the div
-        teamDiv.innerHTML = `
-            <h2>Team ${index + 1}</h2>
-            <p>Team Name: ${team[0]}</p>
-            <p>Team's Domain: ${team[1]}</p>
-            <p>Discord Link: ${team[2]}</p>
-            <p>Ethereum address 1: ${team[3]}</p>
-            <p>Ethereum address 2: ${team[4]}</p>
-        `;
-        
-        // Append the new div to the end of the body
-        document.body.appendChild(teamDiv);
-    });
-}
-
 signIn()
