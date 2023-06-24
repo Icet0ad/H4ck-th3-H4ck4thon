@@ -7,7 +7,7 @@ contract H4ckIt_Core{
     Bounty[] AllBounties;
 
     mapping(address => bool) public IsTeamContact;
-    mapping(address => bool) public HasCreatedTeam;
+    mapping(address => address) public YourTeam;
     mapping(address => mapping(uint256 => uint256)) public IDIndexer;
 
     struct TeamInfo{
@@ -28,12 +28,12 @@ contract H4ckIt_Core{
     }
 
     function AddTeams(string memory TeamName, string memory TeamSymbol, string memory Discord) public returns(address NewTeamAddress){
-        require(HasCreatedTeam[msg.sender] == false);
+        require(YourTeam[msg.sender] != address(0));
 
         address NewH4ckIt = address(new H4ckIt_Team(TeamName, TeamSymbol, Discord, msg.sender));
         TeamInfo memory NewTeam = TeamInfo(TeamName, TeamSymbol,Discord, msg.sender, NewH4ckIt);
         IsTeamContact[NewH4ckIt] = true;
-        HasCreatedTeam[msg.sender] = true;
+        YourTeam[msg.sender] = NewH4ckIt;
 
         ListedTeams.push(NewTeam);
 
