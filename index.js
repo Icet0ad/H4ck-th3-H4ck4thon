@@ -277,7 +277,7 @@ async function getAddress() {
 
 async function getBalance() {
 
-    let amount = await tokensContract.balanceOf(signer.address)
+    let amount = await tokenContract.balanceOf(signer.address)
     document.getElementById("tokenLabel").innerHTML = amount + " Tokens"
 }
 
