@@ -78,8 +78,9 @@ contract H4ckIt_Team{
     }
 
     function CreateBounty(string memory Description) public returns(bool success){
-        Bounty memory NewBounty;
+        Bounty storage NewBounty;
         
+
         
         return(success);
     }
