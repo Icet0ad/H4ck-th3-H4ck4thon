@@ -59,7 +59,6 @@ contract H4ckIt_Team{
     address public ERC20;
     address public Core;
 
-    mapping(uint256 => Bounty) public BountyIndex;
     mapping(uint256 => mapping(address => bool)) AppliedBefore;
     Bounty[] public BountyList;
 
