@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            form, .button-container {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                max-width: 400px; /* You can adjust this value to suit your needs */
+                margin: 0 auto;
+            }
+            button, input {
+                width: 100%;
+                box-sizing: border-box;
+                margin-bottom: 1em;
+                padding: .5em;
+                border-radius: 10px; /* This is the border radius */
+            }
+        </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.3.0/ethers.umd.min.js" charset="utf-8" type="text/javascript"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <h1>Hack the Hackathon</h1>
+        <div class="button-container">
+            <h3>Wallet</h3>
+            <button id="signInButton" onclick="signIn()">
+                Sign In
+            </button>
+        </div>
+        <br>
+        <div>
+            <label id="addressLabel"></label><br>
+            <label id="ethBalanceLabel"></label>
+        </div>    
+
+        <hr>
+
+        <h3>Deploy Team Token</h3>
+        <form id="tokenForm">
+            <input id="teamNameInput" placeholder="Team Name"></input> <br>
+            <input id="tokenSymbolInput" placeholder="Token Symbol"></input> <br>
+            <button id="deployButton" onclick="deployToken()">
+                Deploy
+            </button>
+        </form>
+
+        <hr>
+
+        <h3>Balances</h3>
+        <label id="tokenLabel"></label>
+
+    </body>
+</html>
