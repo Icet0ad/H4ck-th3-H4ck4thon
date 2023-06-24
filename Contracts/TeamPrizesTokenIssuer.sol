@@ -6,13 +6,14 @@ contract TeamPrizesTokenIssuer{
 
     struct TeamListing{
         string TeamName;
+        string TeamSymbol;
         address Operator;
         address ERC20;
     }
 
     function ListTeams(string memory TeamName, string memory TeamSymbol) public returns(address NewToken){
         address NewERC20 = address(new Token(10000000000000000000000, TeamName, TeamSymbol));
-        TeamListing memory NewTeam = TeamListing(TeamName, msg.sender, NewERC20);
+        TeamListing memory NewTeam = TeamListing(TeamName, TeamSymbol, msg.sender, NewERC20);
 
         ListedTeams.push(NewTeam);
     }
