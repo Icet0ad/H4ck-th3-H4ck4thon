@@ -102,7 +102,8 @@ contract H4ckIt_Team{
     }
 
      function ApplyToBounty(uint256 ID, string memory InitialMessage) public returns(bool success){
-
+        
+        return(success)
      }
 
     // function PayoutBounty()
