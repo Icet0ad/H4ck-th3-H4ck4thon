@@ -280,3 +280,4 @@ async function getTokens() {
     let amount = await tokensContract.balanceOf(signer.address)
     document.getElementById("tokenLabel").innerHTML = amount + " Tokens"
 }
+
