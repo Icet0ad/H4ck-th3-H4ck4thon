@@ -578,7 +578,13 @@ async function signIn() {
 }
 
 async function LoadBounties() {
-    Bounties = await HackItCore.AllBountiesArray().then;
+    Bounties = await HackItCore.AllBountiesArray().then((result) => {
+        // Handle the resolved value here
+        console.log(result); // Use the resolved value as needed
+      }).catch((error) => {
+        // Handle any errors that occurred during the promise execution
+        console.error(error);
+      });;
     console.log(Bounties);
 }
 
