@@ -83,8 +83,8 @@ contract H4ckIt_Team{
 
         NewBounty.ID = (BountyList.length + 1);
         NewBounty.Description = Description;
-        BountyIndex[NewBounty.ID] = NewBounty;
 
+        BountyIndex[NewBounty.ID] = NewBounty;
         BountyList.push(NewBounty);
 
 
