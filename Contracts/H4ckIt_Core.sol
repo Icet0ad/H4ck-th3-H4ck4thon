@@ -7,7 +7,7 @@ contract H4ckIt_Core{
     Bounty[] AllBounties;
 
     mapping(address => bool) public IsTeamContact;
-    mapping(uint256)
+    mapping(address)
 
     struct TeamInfo{
         string TeamName;
