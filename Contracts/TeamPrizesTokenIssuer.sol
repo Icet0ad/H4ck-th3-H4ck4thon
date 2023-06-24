@@ -23,8 +23,8 @@ contract TeamPrizesTokenIssuer{
 
 contract H4ckIt_Team{
     string public TeamName;
-    string TeamSymbol;
-    string Discord;
+    string public TeamSymbol;
+    string public Discord;
     address public Operator;
     address public ERC20;
 
