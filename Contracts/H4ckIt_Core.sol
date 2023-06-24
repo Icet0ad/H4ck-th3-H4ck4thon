@@ -73,7 +73,7 @@ contract H4ckIt_Team{
 
     struct Application{
         address Applicant;
-        string Discord;
+        string UserDiscord;
         string InitialMessage;
         bool Accepted;
     }
@@ -101,8 +101,7 @@ contract H4ckIt_Team{
     }
 
      function ApplyToBounty(uint256 ID, string memory InitialMessage, string memory UserDiscord) public returns(bool success){
-        BountyList[ID].Applications.push(Application(msg.sender, Discord, InitalMessage, false));
-
+        BountyList[ID].Applications.push(Application(msg.sender, UserDiscord, InitalMessage, false));
 
         return(success);
      }
