@@ -81,7 +81,7 @@ contract H4ckIt_Team{
     function CreateBounty(string memory Description) public returns(bool success){
         Bounty storage NewBounty;
 
-        NewBounty.ID = 
+        NewBounty.ID = BountyList.length)
         NewBounty.Description = Description;
         
 
