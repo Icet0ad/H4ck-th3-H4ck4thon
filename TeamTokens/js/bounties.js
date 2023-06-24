@@ -585,9 +585,7 @@ async function LoadBounties() {
         try{
                 
         }
-        Bounties.push(
-            
-        )
+        
     }
 }
 
