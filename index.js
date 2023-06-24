@@ -254,8 +254,8 @@ async function signIn() {
             signer = await provider.getSigner();
 
             await getAddress()
-            await initTokens()
-            await getTOKENS()
+            await initToken()
+            await getBalance()
 
         } else {
             console.log('Please install MetaMask!');
@@ -275,8 +275,9 @@ async function getAddress() {
     document.getElementById("addressLabel").innerHTML = "Your Address: " + signer.address
 }
 
-async function getTokens() {
+async function getBalance() {
 
-    let amount = await tokensContract.balanceOf(signer.address)
+    let amount = await tokenContract.balanceOf(signer.address)
     document.getElementById("tokenLabel").innerHTML = amount + " Tokens"
 }
+
