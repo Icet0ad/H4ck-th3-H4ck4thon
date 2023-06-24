@@ -8,7 +8,7 @@ contract H4ckIt_Core{
 
     mapping(address => bool) public IsTeamContact;
 
-    struct TeamListing{
+    struct TeamInfo{
         string TeamName;
         string TeamSymbol;
         string Discord;
