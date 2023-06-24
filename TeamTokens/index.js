@@ -293,6 +293,14 @@ async function getEthBalance() {
     document.getElementById("ethBalanceLabel").innerHTML = "xDAI Balance: " + balance
 }
 
+async function addTeam() {
+    let teanMane =  document.getElementById("teamNameInput").value 
+    let tokenSymbol = document.getElementById("tokenNameInput").value
+    console.log("team name")
+    console.log("token Name")
+
+}
+
 async function getBalance() {
 
     let amount = await tokenContract.balanceOf(signer.address)
