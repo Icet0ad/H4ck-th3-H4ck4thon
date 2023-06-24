@@ -583,7 +583,7 @@ async function LoadBounties() {
     let Bounties = [];
     while(!ArrayLoaded){
         try{
-                
+             HackItCore.   
         }
         
     }
