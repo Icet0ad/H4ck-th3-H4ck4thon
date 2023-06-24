@@ -101,7 +101,9 @@ contract H4ckIt_Team{
         return(success);
     }
 
-     function ApplyToBounty(uint256 ID)
+     function ApplyToBounty(uint256 ID, string memory InitialMessage){
+        
+     }
 
     // function PayoutBounty()
 
