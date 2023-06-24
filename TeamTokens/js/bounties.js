@@ -639,7 +639,7 @@ function createBountiesDiv(bountiesArray) {
 
 async function Apply(address, ID){
     CurrentHackItTeam
-  }
+}
   
 
 async function initTeamTokens() {
