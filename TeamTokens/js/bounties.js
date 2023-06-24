@@ -613,7 +613,7 @@ function createBountiesDiv(bountiesArray) {
       // Add information about the bounty to the div
       bountyDiv.innerHTML = `
         <p style="${style}">Payout: ${payoutEther} Team Prize Tokens</p>
-        <p style="${style}">Prize percentage: ${payoutEther/100} Team Prize Tokens</p>
+        <p style="${style}">Prize percentage: ${payoutEther/100}%</p>
         <p style="${style}">Status: ${bounty.Open ? 'Open' : 'Closed'}</p>
         <p style="${style}">Description: ${bounty.Description}</p>
         <p style="${style}">Discord: <a href="${bounty.Discord}">${bounty.Discord}</a></p>
