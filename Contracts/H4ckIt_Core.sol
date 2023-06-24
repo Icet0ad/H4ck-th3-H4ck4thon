@@ -46,7 +46,7 @@ contract H4ckIt_Core{
         return(success);
     }
 
-    function CloseBounty
+    // function CloseBounty()
 
 }
 
