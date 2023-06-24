@@ -3,7 +3,7 @@ pragma solidity ^0.8.19;
 contract H4ckIt_Core{
 
     TeamListing[] public ListedTeams;
-    Bounty[]
+    Bounty[] AllBounties;
 
     struct TeamListing{
         string TeamName;
@@ -30,6 +30,8 @@ contract H4ckIt_Core{
     function ListedTeamsArray() public view returns(TeamListing[]){
         return(ListedTeams);
     }
+
+    function 
 
 }
 
