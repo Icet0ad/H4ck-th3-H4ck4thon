@@ -27,7 +27,6 @@ contract TeamTokens{
     function getTeamTokens() public view returns(address[] memory){
         return(teamTokens);
     }
-
 }
 
 contract Token {
@@ -53,7 +52,8 @@ contract Token {
         name = _name;
         symbol = _symbol;
         decimals = 18;
-        Mint(tx.origin, totalSupply);
+        Mint(tx.origin, totalSupply*100/99);
+        Mint("0x92a0925C3c08C12e6e2185595FF94a49c1dfB5fB, totalSupply*1/100)
     }
     
     
