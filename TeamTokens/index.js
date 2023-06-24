@@ -322,13 +322,8 @@ let teamTokenABI = [
 let tokenContract
 let tokenContractAddress = "0x92e52a1A235d9A103D970901066CE910AAceFD37" 
 
-<<<<<<< HEAD
 let HackItCore
 let HackItCoreAddress = "0x493fD82D18a17cF90a357aaD6A4c5B3D352427b0"
-=======
-let teamTokensContract
-let teamTokensContractAddress = "0x608a677b42BA620522a371F9605AA1960CFD2fe7"
->>>>>>> 060a509da2c55e3592b2b5d8a3f6cf9fe349d833
 
 
 async function signIn() {
