@@ -578,16 +578,8 @@ async function signIn() {
 }
 
 async function LoadBounties() {
-    Bounties = await HackItCore.AllBountiesArray().then((result) => {
-        const target = result.target;
-    
-    // Continue working with the target data
-        console.log(target);
-      }).catch((error) => {
-        // Handle any errors that occurred during the promise execution
-        console.error(error);
-      });;
-    console.log(Bounties);
+    let 
+    whi
 }
 
 async function initTeamTokens() {
