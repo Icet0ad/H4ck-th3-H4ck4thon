@@ -9,7 +9,7 @@
                 align-items: center;
                 text-align: center;
             }
-            .button-container {
+            form, .button-container {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
@@ -17,11 +17,11 @@
                 margin: 0 auto;
             }
             button, input {
+                width: 100%;
                 box-sizing: border-box;
                 margin-bottom: 1em;
                 padding: .5em;
                 border-radius: 10px; /* This is the border radius */
-                max-width: 100%; /* Added max-width to limit the width */
             }
         </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.3.0/ethers.umd.min.js" charset="utf-8" type="text/javascript"></script>
@@ -46,11 +46,13 @@
         <hr>
 
         <h3>Deploy Team Token</h3>
-        <input id="teamNameInput" placeholder="Team Name"> </input> <br>
-        <input id="tokenSymbolInput" placeholder="Token Symbol"> </input> <br>
-        <button id="deployButton" onclick="deployToken()">
-            Deploy
-        </button>
+      <form id="tokenForm">
+            <input id="teamNameInput" placeholder="Team Name"></input> <br>
+            <input id="tokenSymbolInput" placeholder="Token Symbol"></input> <br>
+            <button id="deployButton" onclick="deployToken()">
+                Deploy
+            </button>
+        </form>
 
         <hr>
 
