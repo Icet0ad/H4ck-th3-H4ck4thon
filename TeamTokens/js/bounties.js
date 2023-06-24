@@ -582,10 +582,11 @@ async function LoadBounties() {
     let index = 0;
     let Bounties = [];
     while(!ArrayLoaded){
-        Bounties.push(
-            try{
+        try{
                 
-            }
+        }
+        Bounties.push(
+            
         )
     }
 }
