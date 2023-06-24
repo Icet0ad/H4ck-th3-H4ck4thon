@@ -1,4 +1,4 @@
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
 contract TeamPrizesTokenIssuer{
 
@@ -28,7 +28,7 @@ contract H4ckIt_Team{
 
     struct Bounty{
         uint256 ID;
-        
+
     }
 
 }
