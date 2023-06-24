@@ -85,7 +85,7 @@ contract H4ckIt_Team{
         NewBounty.Description = Description;
         BountyIndex[NewBounty.ID] = NewBounty;
 
-        BountyList
+        BountyList.push(NewBounty);
 
 
         return(success);
