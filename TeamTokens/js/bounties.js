@@ -579,6 +579,7 @@ async function signIn() {
 
 async function LoadBounties() {
     Bounties = HackItCore.AllBountiesArray();
+    console.log(Bounties);
 }
 
 async function initTeamTokens() {
