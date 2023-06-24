@@ -34,7 +34,7 @@ contract H4ckIt_Team{
 
     struct Bounty{
         uint256 ID;
-        mapping(msg.sender )
+        mapping(address => bool) AppliedBefore;
         Application[] Applications;
     }
 
