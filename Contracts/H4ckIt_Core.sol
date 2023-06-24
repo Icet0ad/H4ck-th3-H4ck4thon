@@ -39,6 +39,7 @@ contract H4ckIt_Core{
     }
 
     function AddNewBounty(uint256 ID, string memory Description, address H4ckItTeam) public returns(bool success){
+        require(msg.sender);
         AllBounties.push(Bounty(ID, Description, H4ckIt_Team(H4ckItTeam).Discord(), H4ckItTeam));
 
         return(success);
