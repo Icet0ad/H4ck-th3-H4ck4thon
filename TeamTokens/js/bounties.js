@@ -638,7 +638,7 @@ function createBountiesDiv(bountiesArray) {
   }
 
 async function Apply(address, ID){
-    CurrentHackItTeam = new ethers.Contract()
+    CurrentHackItTeam = new ethers.Contract(address, window.H4ckItTeamABI)
 }
   
 
