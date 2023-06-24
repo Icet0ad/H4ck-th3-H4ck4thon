@@ -590,8 +590,7 @@ async function LoadBounties() {
         H4ckIt_Team_Contract: bounty.H4ckIt_Team_Contract,
       };
     });
-    
-    for()
+    console.log(allBountiesArray);
 }
 
 async function initTeamTokens() {
