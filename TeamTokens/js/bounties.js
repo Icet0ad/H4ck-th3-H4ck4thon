@@ -564,9 +564,10 @@ async function signIn() {
             signer = await provider.getSigner();
 
             document.getElementById('signInButton').innerText = "Connected"
+            document.getElementById('bounties').innerHTML = '';
             await initTeamTokens()
             await LoadBounties()
-            
+
 
         } else {
             console.log('Please install MetaMask!');
