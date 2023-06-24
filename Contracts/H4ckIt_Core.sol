@@ -18,6 +18,7 @@ contract H4ckIt_Core{
 
     struct Bounty{
         uint256 ID;
+        uint256 Payout;
         bool Open;
         string Description;
         string Discord;
