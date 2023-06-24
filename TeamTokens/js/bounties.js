@@ -615,7 +615,7 @@ function createBountiesDiv(bountiesArray) {
   
       // Append the bounty div to the container
       bountiesContainer.appendChild(bountyDiv);
-      
+      bountiesContainer.appendChild('')
     }
   }
 
