@@ -27,7 +27,8 @@ contract H4ckIt_Team{
     mapping(uint256 => Bounty) public BountyIndex;
 
     struct Application{
-        address A
+        address Applicant;
+        
     }
 
     struct Bounty{
