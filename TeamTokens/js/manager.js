@@ -225,7 +225,107 @@ let erc20ABI = [
     }
 ]
 
-let teamTokenABI = [
+let H4ckItTeamABI =  [
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_TeamName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_TeamSymbol",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_Discord",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "_Operator",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "AllBounties",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "ID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "Open",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Payout",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "Description",
+						"type": "string"
+					}
+				],
+				"internalType": "struct H4ckIt_Team.Bounty[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "Applications",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "Applicant",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "UserDiscord",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "InitialMessage",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "Accepted",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
 	{
 		"inputs": [
 			{
@@ -235,21 +335,16 @@ let teamTokenABI = [
 			},
 			{
 				"internalType": "string",
-				"name": "Description",
+				"name": "InitialMessage",
 				"type": "string"
 			},
 			{
-				"internalType": "address",
-				"name": "H4ckItTeam",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "Payout",
-				"type": "uint256"
+				"internalType": "string",
+				"name": "UserDiscord",
+				"type": "string"
 			}
 		],
-		"name": "AddNewBounty",
+		"name": "ApplyToBounty",
 		"outputs": [
 			{
 				"internalType": "bool",
@@ -263,72 +358,32 @@ let teamTokenABI = [
 	{
 		"inputs": [
 			{
-				"internalType": "string",
-				"name": "TeamName",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "TeamSymbol",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "Discord",
-				"type": "string"
-			}
-		],
-		"name": "AddTeams",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "NewTeamAddress",
-				"type": "address"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "AllBountiesArray",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "uint256",
-						"name": "ID",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "Payout",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bool",
-						"name": "Open",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "Description",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "Discord",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "H4ckIt_Team_Contract",
-						"type": "address"
-					}
-				],
-				"internalType": "struct H4ckIt_Core.Bounty[]",
+				"internalType": "uint256",
 				"name": "",
-				"type": "tuple[]"
+				"type": "uint256"
+			}
+		],
+		"name": "BountyList",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "ID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "Open",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "Payout",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "Description",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -354,24 +409,13 @@ let teamTokenABI = [
 		"type": "function"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "Core",
+		"outputs": [
 			{
 				"internalType": "address",
 				"name": "",
 				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "IDIndexer",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -380,55 +424,47 @@ let teamTokenABI = [
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
+				"internalType": "string",
+				"name": "Description",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "TokenAmount",
+				"type": "uint256"
 			}
 		],
-		"name": "IsTeamContact",
+		"name": "CreateBounty",
 		"outputs": [
 			{
 				"internalType": "bool",
-				"name": "",
+				"name": "success",
 				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "Discord",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "ListedTeams",
+		"inputs": [],
+		"name": "ERC20",
 		"outputs": [
 			{
-				"internalType": "string",
-				"name": "TeamName",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "TeamSymbol",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "Discord",
-				"type": "string"
-			},
-			{
 				"internalType": "address",
-				"name": "Operator",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "H4ckIt_Team_Contract",
+				"name": "",
 				"type": "address"
 			}
 		],
@@ -437,39 +473,12 @@ let teamTokenABI = [
 	},
 	{
 		"inputs": [],
-		"name": "ListedTeamsArray",
+		"name": "Operator",
 		"outputs": [
 			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "TeamName",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "TeamSymbol",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "Discord",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "Operator",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "H4ckIt_Team_Contract",
-						"type": "address"
-					}
-				],
-				"internalType": "struct H4ckIt_Core.TeamInfo[]",
+				"internalType": "address",
 				"name": "",
-				"type": "tuple[]"
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -478,17 +487,48 @@ let teamTokenABI = [
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
+				"internalType": "uint256",
+				"name": "BountyID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "ApplicationID",
+				"type": "uint256"
 			}
 		],
-		"name": "YourTeam",
+		"name": "PayoutBounty",
 		"outputs": [
 			{
-				"internalType": "address",
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "TeamName",
+		"outputs": [
+			{
+				"internalType": "string",
 				"name": "",
-				"type": "address"
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "TeamSymbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -559,6 +599,19 @@ async function getEthBalance() {
     document.getElementById("ethBalanceLabel").innerHTML = "xDAI Balance: " + balance
 }
 
+async function deployToken() {
+    let teamName =  document.getElementById("teamNameInput").value 
+    let tokenSymbol = document.getElementById("tokenSymbolInput").value
+    let Discord = document.getElementById("DiscordServerInput").value
+    console.log(teamName)
+    console.log(tokenSymbol);
+    try{
+        await HackItCore.AddTeams(teamName,tokenSymbol,Discord);
+    }
+    catch(err){
+        alert("You already created a team!")
+    }
+}
 
 async function getBalance() {
     let amount = await tokenContract.balanceOf(signer.address)
