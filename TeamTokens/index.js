@@ -233,6 +233,9 @@ let coreABI = [{"inputs":[{"internalType":"uint256","name":"ID","type":"uint256"
 let tokenContract
 let tokenContractAddress = "0x92e52a1A235d9A103D970901066CE910AAceFD37" 
 
+let coreContract
+let coreContractAddress = "0x493fd82d18a17cf90a357aad6a4c5b3d352427b0"
+
 
 async function signIn() {
     try {
@@ -272,6 +275,10 @@ async function signIn() {
 
 async function initToken(){
     tokenContract = new ethers.Contract(tokenContractAddress, erc20ABI, provider);
+}
+
+async function initCore() {
+    coreContract = new ethers.Contract(coreContractAddress, coreABI, signer)
 }
 
 async function getAddress() {
