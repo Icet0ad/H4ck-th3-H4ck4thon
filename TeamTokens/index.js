@@ -268,22 +268,51 @@ let teamTokenABI = [
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "IDIndexer",
+		"name": "teamTokens",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "address",
 				"name": "",
-				"type": "uint256"
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "teams",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "TeamName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "TeamSymbol",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Discord",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "Operator",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -364,4 +393,9 @@ async function deployToken() {
 async function getBalance() {
     let amount = await tokenContract.balanceOf(signer.address)
     document.getElementById("tokenLabel").innerHTML = amount + " Tokens"
+}
+
+async function getTeamTokens(){
+    let teamTokens = await teamTokensContract.getTeamTokens()
+    
 }
