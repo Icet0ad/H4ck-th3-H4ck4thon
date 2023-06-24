@@ -225,7 +225,7 @@ let erc20ABI = [
     }
 ]
 
-let teamTokenABI =  [
+let H4ckItTeamABI =  [
 	{
 		"inputs": [
 			{
