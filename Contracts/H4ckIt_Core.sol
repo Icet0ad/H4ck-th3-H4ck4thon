@@ -109,9 +109,10 @@ contract H4ckIt_Team{
         return(success);
     }
 
-    function CloseBounty(uint256 ID){
+    function CloseBounty(uint256 ID) public returns(bool success){
         require(msg.sender == Operator);
         BountyList[ID].Open = false;
+        
     }
 
      function ApplyToBounty(uint256 ID, string memory InitialMessage, string memory UserDiscord) public returns(bool success){
