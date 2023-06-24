@@ -1,5 +1,4 @@
 // SPDX-License-Identifier:UNLISCENSE
-
 pragma solidity ^0.8.19;
 
 contract H4ckIt_Core{
