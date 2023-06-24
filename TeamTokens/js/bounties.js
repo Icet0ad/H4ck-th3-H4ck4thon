@@ -600,17 +600,23 @@ function createBountiesDiv(bountiesArray) {
       const bounty = bountiesArray[i];
   
       // Create a div element for the bounty
-      const bountyDiv = document.createElement('box');
+      const bountyDiv = document.createElement('div');
       bountyDiv.classList.add('bounty-box');
       bountyDiv.id = bounty.ID;
   
+      // Convert payout from wei to ether
+      const payoutEther = ethers.utils.formatEther(bounty.Payout);
+  
+      // Apply bold and slightly bigger styling to the text
+      const style = 'font-weight: bold; font-size: 1.1em;';
+  
       // Add information about the bounty to the div
       bountyDiv.innerHTML = `
-        <p>Payout: ${bounty.Payout}</p>
-        <p>Status: ${bounty.Open ? 'Open' : 'Closed'}</p>
-        <p>Description: ${bounty.Description}</p>
-        <p>Discord: <a href="${bounty.Discord}">${bounty.Discord}</a></p>
-        <p>Team Contract: ${bounty.H4ckIt_Team_Contract}</p>
+        <p style="${style}">Payout: ${payoutEther} Ether</p>
+        <p style="${style}">Status: ${bounty.Open ? 'Open' : 'Closed'}</p>
+        <p style="${style}">Description: ${bounty.Description}</p>
+        <p style="${style}">Discord: <a href="${bounty.Discord}">${bounty.Discord}</a></p>
+        <p style="${style}">Team Contract: ${bounty.H4ckIt_Team_Contract}</p>
       `;
   
       // Append the bounty div to the container
@@ -619,6 +625,7 @@ function createBountiesDiv(bountiesArray) {
       bountiesContainer.appendChild(bountyDiv);
     }
   }
+  
 
 async function initTeamTokens() {
     HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
