@@ -563,8 +563,7 @@ async function signIn() {
 
             signer = await provider.getSigner();
 
-            await getAddress()
-            await getEthBalance()
+            document.ge
             await initTeamTokens()
 
         } else {
