@@ -81,7 +81,7 @@ contract H4ckIt_Team{
     function CreateBounty(string memory Description, uint256 TokenAmount) public returns(bool success){
         require(msg.sender == Operator);
         Bounty memory NewBounty;
-        Token(ERC20).transferFrom(msg.sender, _to, _amount);
+        Token(ERC20).transferFrom(msg.sender, address(this), );
 
         NewBounty.ID = (BountyList.length + 1);
         NewBounty.Description = Description;
