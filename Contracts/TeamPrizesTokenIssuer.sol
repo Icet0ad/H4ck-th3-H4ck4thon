@@ -36,6 +36,7 @@ contract H4ckIt_Team{
         uint256 ID;
         mapping(address => bool) AppliedBefore;
         Application[] Applications;
+        
     }
 
 }
