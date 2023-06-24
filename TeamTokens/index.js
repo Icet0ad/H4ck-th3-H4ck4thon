@@ -396,7 +396,6 @@ async function getBalance() {
 }
 
 async function getTeamTokens(){
-    let teamTokens = await teamTokensContract.getTeamTokens()
 // First, we get all team tokens
 const teamTokens = await teamTokensContract.getTeamTokens();
 
