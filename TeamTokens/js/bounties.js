@@ -641,7 +641,7 @@ async function Apply(address, ID){
     CurrentHackItTeam = new ethers.Contract(address, window.TeamABI, signer);
     Discord = document.getElementById('discordinput').ariaValueMax;
     if(Discord == ''){
-        
+        alert("Enter your discord username to apply so teams can contact you")
     }
     CurrentHackItTeam.ApplyToBounty(ID, "Interested!", )
 }
