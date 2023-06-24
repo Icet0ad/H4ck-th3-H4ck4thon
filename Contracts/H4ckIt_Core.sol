@@ -78,7 +78,7 @@ contract H4ckIt_Team{
         Application[] Applications;
     }
 
-    function CreateBounty(string memory Description, uint256 ) public returns(bool success){
+    function CreateBounty(string memory Description, uint256 TokenAmount) public returns(bool success){
         require(msg.sender == Operator);
         Bounty memory NewBounty;
 
