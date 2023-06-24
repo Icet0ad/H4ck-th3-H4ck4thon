@@ -368,7 +368,7 @@ async function initToken(){
 }
 
 async function initTeamTokens() {
-    HackItCore = new ethers.Contract(HackItCoreAddress, teamTokenABI, signer)
+    HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
 }
 
 async function getAddress() {
