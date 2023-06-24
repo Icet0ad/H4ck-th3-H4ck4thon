@@ -100,6 +100,7 @@ contract H4ckIt_Team{
 
         NewBounty.ID = BountyList.length;
         NewBounty.Description = Description;
+        NewBounty.Open = true;
 
         BountyIndex[NewBounty.ID] = NewBounty;
         BountyList.push(NewBounty);
