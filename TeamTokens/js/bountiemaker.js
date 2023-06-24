@@ -584,18 +584,6 @@ async function signIn(truth) {
     const etherAmount = BigInt(weiAmount) / BigInt(10 ** 18);
     return etherAmount.toString();
   }
-
-async function Apply(address, ID){
-    CurrentHackItTeam = new ethers.Contract(address, window.TeamABI, signer);
-    Discord = document.getElementById('discordinput').value;
-
-    if (Discord === '') {
-        alert("Enter your Discord username to apply so teams can contact you");
-        return;
-    }
-
-    CurrentHackItTeam.ApplyToBounty(ID, "Interested!", Discord);
-}
   
 
 async function initTeamTokens() {
