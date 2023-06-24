@@ -277,7 +277,7 @@ async function getAddress() {
 }
 
 async function getEthBalance() {
-    document.getAnimations("ethBalanceLabel").innerHTML = "xDAI Balance: " + provider.getBalance(signer.address)
+    document.getAnimations("ethBalanceLabel").innerHTML = "xDAI Balance: " + await provider.getBalance(signer.address)
 }
 
 async function getBalance() {
