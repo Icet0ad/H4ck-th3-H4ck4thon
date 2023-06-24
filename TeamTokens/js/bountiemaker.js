@@ -545,7 +545,7 @@ let CurrentHackItTeam;
 let CurrentHackItTeamAddress;
 
 
-async function signIn(truth) {
+async function signIn() {
     try {
         // Check if MetaMask is installed
         if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
@@ -585,8 +585,7 @@ async function signIn(truth) {
     return etherAmount.toString();
   }
 
-async
-  
+
 
 async function initTeamTokens() {
     HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
