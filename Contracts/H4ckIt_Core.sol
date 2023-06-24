@@ -101,8 +101,7 @@ contract H4ckIt_Team{
     }
 
      function ApplyToBounty(uint256 ID, string memory InitialMessage, string memory UserDiscord) public returns(bool success){
-
-        
+        require(condition);
         BountyList[ID].Applications.push(Application(msg.sender, UserDiscord, InitalMessage, false));
         AppliedBefore[ID][msg.sender] = true;
 
