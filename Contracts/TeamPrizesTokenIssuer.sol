@@ -31,7 +31,7 @@ contract H4ckIt_Team{
     mapping(uint256 => Bounty) public BountyIndex;
 
     constructor(string memory _TeamName, string memory _TeamSymbol, string memory _Discord, address _Operator){
-        address NewERC20 = address(new Token(10000000000000000000000, TeamName, TeamSymbol));
+        ERC20 = address(new Token(10000000000000000000000, TeamName, TeamSymbol));
         
     }
 
