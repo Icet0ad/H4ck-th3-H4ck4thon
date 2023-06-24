@@ -625,6 +625,11 @@ function createBountiesDiv(bountiesArray) {
       bountiesContainer.appendChild(bountyDiv);
     }
   }
+
+  function convertWeiToEther(weiAmount) {
+    const etherAmount = BigInt(weiAmount) / BigInt(10 ** 18);
+    return etherAmount.toString();
+  }
   
 
 async function initTeamTokens() {
