@@ -545,7 +545,7 @@ let CurrentHackItTeam;
 let CurrentHackItTeamAddress;
 
 
-async function signIn() {
+async function signIn(truth) {
     try {
         // Check if MetaMask is installed
         if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
@@ -569,7 +569,9 @@ async function signIn() {
             document.getElementById('signInButton').innerText = "Connected"
             document.getElementById('bounties').innerHTML = '';
             await initTeamTokens()
-        
+            if(truth){
+                LoadBounties();
+            }
 
 
         } else {
