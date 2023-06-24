@@ -590,7 +590,7 @@ async function LoadBounties() {
         H4ckIt_Team_Contract: bounty.H4ckIt_Team_Contract,
       };
     });
-    createBountiesDiv()
+    createBountiesDiv(allBountiesArray);
 }
 
 function createBountiesDiv(bountiesArray) {
