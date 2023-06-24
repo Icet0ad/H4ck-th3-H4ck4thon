@@ -49,7 +49,6 @@ contract H4ckIt_Team{
         string Discord;
         mapping(address => bool) AppliedBefore;
         Application[] Applications;
-
     }
 
 }
