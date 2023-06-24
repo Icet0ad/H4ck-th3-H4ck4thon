@@ -87,9 +87,10 @@ contract H4ckIt_Team{
         BountyIndex[NewBounty.ID] = NewBounty;
         BountyList.push(NewBounty);
 
-
         return(success);
     }
+
+    funct
 
 }
 
