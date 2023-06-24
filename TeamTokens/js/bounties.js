@@ -578,8 +578,8 @@ async function signIn() {
 }
 
 async function LoadBounties() {
-    let 
-    whi
+    let ArrayLoaded = false;
+    while(ArrayLoaded)
 }
 
 async function initTeamTokens() {
