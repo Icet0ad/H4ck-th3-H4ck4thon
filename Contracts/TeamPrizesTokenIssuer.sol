@@ -19,7 +19,7 @@ contract H4ckIt_Core{
         ListedTeams.push(NewTeam);
     }
 
-    function 
+    function ListedTeamsArray() public 
 
 }
 
