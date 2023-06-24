@@ -65,6 +65,7 @@ contract H4ckIt_Team{
         TeamSymbol = _TeamSymbol;
         Discord = _Discord;
         Operator = _Operator;
+        Core = msg.sender;
     }
 
     struct Application{
