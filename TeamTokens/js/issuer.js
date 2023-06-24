@@ -1,4 +1,4 @@
-await signIn()
+signIn()
 let accounts
 let provider
 let signer
