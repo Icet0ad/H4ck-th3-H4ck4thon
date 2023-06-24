@@ -1,6 +1,6 @@
 pragma solidity ^0.8.19;
 
-contract TeamPrizesTokenIssuer{
+contract H4ckIt_Core{
 
     TeamListing[] public ListedTeams;
 
