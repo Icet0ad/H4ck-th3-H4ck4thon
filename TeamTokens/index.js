@@ -40,3 +40,10 @@ async function signIn() {
 async function getAddress() {
     document.getElementById("addressLabel").innerHTML = "Your Address: " + signer.address
 }
+
+async function getEthBalance() {
+    console.log("getEthBalance")
+    let balance = await provider.getBalance(signer.address)
+    balance = ethers.formatEther(balance)
+    document.getElementById("ethBalanceLabel").innerHTML = "xDAI Balance: " + balance
+}
