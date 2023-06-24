@@ -20,9 +20,9 @@ contract TeamPrizesTokenIssuer{
 }
 
 contract H4ckIt_Team{
-    string TeamName;
-        address Operator;
-        address ERC20;
+    string public TeamName;
+    address public Operator;
+    address public ERC20;
 
 }
 
