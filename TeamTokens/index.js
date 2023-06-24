@@ -391,6 +391,9 @@ async function deployToken() {
     try{
         await HackItCore.AddTeams(teamName,tokenSymbol,Discord);
     }
+    catch(err){
+        alert()
+    }
 }
 
 async function getBalance() {
