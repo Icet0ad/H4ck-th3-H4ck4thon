@@ -50,14 +50,13 @@ contract H4ckIt_Team{
     }
 
     struct Bounty{
-        uint256 ID;
         string Description;
         string Discord;
         mapping(address => bool) AppliedBefore;
         Application[] Applications;
     }
 
-    function CreateBounty()
+    function CreateBounty(Dis)
 
 }
 
