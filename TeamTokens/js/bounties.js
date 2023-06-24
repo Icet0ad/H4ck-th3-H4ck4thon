@@ -590,31 +590,33 @@ async function LoadBounties() {
         H4ckIt_Team_Contract: bounty.H4ckIt_Team_Contract,
       };
     });
-    function createBountiesDiv(bountiesArray) {
-        const bountiesContainer = document.getElementById('bounties');
-      
-        for (let i = 0; i < bountiesArray.length; i++) {
-          const bounty = bountiesArray[i];
-      
-          // Create a div element for the bounty
-          const bountyDiv = document.createElement('div');
-          bountyDiv.classList.add('bounty-box');
-      
-          // Add information about the bounty to the div
-          bountyDiv.innerHTML = `
-            <h3>Bounty ID: ${bounty.ID}</h3>
-            <p>Payout: ${bounty.Payout}</p>
-            <p>Status: ${bounty.Open ? 'Open' : 'Closed'}</p>
-            <p>Description: ${bounty.Description}</p>
-            <p>Discord: <a href="${bounty.Discord}">${bounty.Discord}</a></p>
-            <p>Team Contract: ${bounty.H4ckIt_Team_Contract}</p>
-          `;
-      
-          // Append the bounty div to the container
-          bountiesContainer.appendChild(bountyDiv);
-        }
-      }
+    
 }
+
+function createBountiesDiv(bountiesArray) {
+    const bountiesContainer = document.getElementById('bounties');
+  
+    for (let i = 0; i < bountiesArray.length; i++) {
+      const bounty = bountiesArray[i];
+  
+      // Create a div element for the bounty
+      const bountyDiv = document.createElement('div');
+      bountyDiv.classList.add('bounty-box');
+  
+      // Add information about the bounty to the div
+      bountyDiv.innerHTML = `
+        <h3>Bounty ID: ${bounty.ID}</h3>
+        <p>Payout: ${bounty.Payout}</p>
+        <p>Status: ${bounty.Open ? 'Open' : 'Closed'}</p>
+        <p>Description: ${bounty.Description}</p>
+        <p>Discord: <a href="${bounty.Discord}">${bounty.Discord}</a></p>
+        <p>Team Contract: ${bounty.H4ckIt_Team_Contract}</p>
+      `;
+  
+      // Append the bounty div to the container
+      bountiesContainer.appendChild(bountyDiv);
+    }
+  }
 
 async function initTeamTokens() {
     HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
