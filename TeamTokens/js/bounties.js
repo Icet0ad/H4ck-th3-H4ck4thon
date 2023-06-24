@@ -578,7 +578,7 @@ async function signIn() {
 }
 
 async function LoadBounties() {
-    
+    Bounties = Hack
 }
 
 async function initTeamTokens() {
