@@ -30,6 +30,8 @@ async function signIn() {
 
             signer = await provider.getSigner();
 
+            document.getElementById('signInButton').innerText = "Connected"
+
             await getAddress()
             await getEthBalance()
 
