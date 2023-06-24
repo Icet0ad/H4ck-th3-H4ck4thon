@@ -85,7 +85,7 @@ contract H4ckIt_Team{
         require(msg.sender == Operator);
         Bounty memory NewBounty;
         Token(ERC20).transferFrom(msg.sender, address(this), TokenAmount);
-        H4ckIt_Core(Core)
+        H4ckIt_Core(Core).
 
         NewBounty.ID = (BountyList.length + 1);
         NewBounty.Description = Description;
