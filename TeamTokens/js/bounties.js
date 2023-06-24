@@ -636,6 +636,8 @@ function createBountiesDiv(bountiesArray) {
     const etherAmount = BigInt(weiAmount) / BigInt(10 ** 18);
     return etherAmount.toString();
   }
+
+  async function Apply(addre)
   
 
 async function initTeamTokens() {
