@@ -323,7 +323,7 @@ let tokenContract
 let tokenContractAddress = "0x92e52a1A235d9A103D970901066CE910AAceFD37" 
 
 let teamTokensContract
-let teamTokensContractAddress = "0xF02E24F7Ac2eF5f455A67068372695b4F0f3FA41"
+let teamTokensContractAddress = "0x7a5B3dAfc2e4b98762c52B1093B4BF91EBbBDE4c"
 
 
 async function signIn() {
