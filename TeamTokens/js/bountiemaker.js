@@ -566,7 +566,7 @@ async function signIn() {
 
 			const network = await provider.getNetwork();
 
-			if (bigNum.toNumber(network.chainID) !== 100) {
+			if (int(network.chainID) !== 100) {
 				alert("Unsupported Chain ID. Please switch to Gnosis Chain (100).");
 				throw new Error("Unsupported Chain ID");
 			}
