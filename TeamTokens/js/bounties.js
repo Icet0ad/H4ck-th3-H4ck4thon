@@ -582,7 +582,7 @@ async function LoadBounties() {
     let index = 0;
     let Bounties = [];
     while(!ArrayLoaded){
-        HackItCore.List
+        Bounties.push
     }
 }
 
