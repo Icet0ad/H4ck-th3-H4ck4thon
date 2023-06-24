@@ -577,6 +577,10 @@ async function signIn() {
     }
 }
 
+async function LoadBounties() {
+    
+}
+
 async function initTeamTokens() {
     HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
 }
