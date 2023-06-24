@@ -232,6 +232,40 @@ let teamTokenABI = [
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "ID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "Description",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "H4ckItTeam",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "Payout",
+				"type": "uint256"
+			}
+		],
+		"name": "AddNewBounty",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "string",
 				"name": "TeamName",
 				"type": "string"
@@ -247,19 +281,119 @@ let teamTokenABI = [
 				"type": "string"
 			}
 		],
-		"name": "addTeam",
-		"outputs": [],
+		"name": "AddTeams",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "NewTeamAddress",
+				"type": "address"
+			}
+		],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [],
-		"name": "getTeamTokens",
+		"name": "AllBountiesArray",
 		"outputs": [
 			{
-				"internalType": "address[]",
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "ID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Payout",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "Open",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "Description",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Discord",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "H4ckIt_Team_Contract",
+						"type": "address"
+					}
+				],
+				"internalType": "struct H4ckIt_Core.Bounty[]",
 				"name": "",
-				"type": "address[]"
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "ID",
+				"type": "uint256"
+			}
+		],
+		"name": "CloseBounty",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "IDIndexer",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "IsTeamContact",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
@@ -273,26 +407,7 @@ let teamTokenABI = [
 				"type": "uint256"
 			}
 		],
-		"name": "teamTokens",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "teams",
+		"name": "ListedTeams",
 		"outputs": [
 			{
 				"internalType": "string",
@@ -312,6 +427,70 @@ let teamTokenABI = [
 			{
 				"internalType": "address",
 				"name": "Operator",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "H4ckIt_Team_Contract",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "ListedTeamsArray",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "TeamName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "TeamSymbol",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Discord",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "Operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "H4ckIt_Team_Contract",
+						"type": "address"
+					}
+				],
+				"internalType": "struct H4ckIt_Core.TeamInfo[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "YourTeam",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
 				"type": "address"
 			}
 		],
