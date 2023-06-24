@@ -614,13 +614,13 @@ function createBountiesDiv(bountiesArray) {
   
       // Add information about the bounty to the div
       bountyDiv.innerHTML = `
-        <p style="${style}">Payout: ${payoutEther} Team Prize Tokens</p>
-        <p style="${style}">Percentage: ${payoutEther/100}%</p>
-        <p style="${style}">Status: ${bounty.Open ? 'Open' : 'Closed'}</p>
-        <p style="${style}">Description: ${bounty.Description}</p>
-        <p style="${style}">Discord: <a href="${bounty.Discord}">${bounty.Discord}</a></p>
-        <p style="${style}">Team Contract: ${bounty.H4ckIt_Team_Contract}</p>
-      `;
+      <p><strong>Payout:</strong> ${payoutEther} ETH</p>
+      <p><strong>Status:</strong> ${bounty.Open ? 'Open' : 'Closed'}</p>
+      <p><strong>Description:</strong> ${bounty.Description}</p>
+      <p><strong>Discord:</strong> <a href="${bounty.Discord}">${bounty.Discord}</a></p>
+      <p><strong>Team Contract:</strong> ${bounty.H4ckIt_Team_Contract}</p>
+      <button onclick="Apply('${bounty.H4ckIt_Team_Contract}', '${bounty.ID}')">Apply</button>
+    `;
   
       // Append the bounty div to the container
       const br = document.createElement('br');
