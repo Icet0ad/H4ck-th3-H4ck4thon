@@ -323,7 +323,7 @@ let tokenContract
 let tokenContractAddress = "0x92e52a1A235d9A103D970901066CE910AAceFD37" 
 
 let HackItCore
-let HackItCoreAddress = "0x493fD82D18a17cF90a357aaD6A4c5B3D352427b0"
+let HackItCoreAddress = "0xF4bc6e6eFc3Fe5FC05d2A5C403348bDDF5349D43"
 
 
 async function signIn() {
