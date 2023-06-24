@@ -35,7 +35,7 @@ contract H4ckIt_Team{
         TeamName = _TeamName;
         TeamSymbol = _TeamSymbol;
         Discord = _Discord;
-        _Discord
+        Operator = _Operator;
     }
 
     struct Application{
