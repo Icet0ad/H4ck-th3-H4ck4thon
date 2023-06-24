@@ -129,6 +129,7 @@ contract H4ckIt_Team{
         require(msg.sender == Operator);
 
         Token(ERC20).transfer(BountyList[BountyID].Applications[ApplicationID], BountyList[BountyID].Payout);
+        CloseBounty(BountyID);
 
         return(success);
      }
