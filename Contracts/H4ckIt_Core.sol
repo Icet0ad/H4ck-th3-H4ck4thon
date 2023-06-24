@@ -109,7 +109,7 @@ contract H4ckIt_Team{
         return(success);
      }
 
-     function PayoutBounty() public returns(bool success){
+     function PayoutBounty(uint256 BountyID, uint256 ) public returns(bool success){
         require(msg.sender == Operator);
 
         Token(ERC20).transfer(, _amount);
