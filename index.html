@@ -1,19 +1,32 @@
-
 <html>
     <head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.3.0/ethers.umd.min.js"
-        charset="utf-8"
-        type="text/javascript">
-</script>
-<script src="index.js"></script>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            form, .button-container {
+                display: flex;
+                flex-direction: column;
+            }
+            button, input {
+                flex-grow: 1;
+            }
+            label {
+                text-align: center;
+            }
+        </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.3.0/ethers.umd.min.js" charset="utf-8" type="text/javascript"></script>
+        <script src="index.js"></script>
     </head>
-    <h1>Hack the Hackathon</h1>
     <body>
-        <div>
-        <h3>Wallet</h3>
-        <button onclick="signIn()">
-            Sign In
-        </button>
+        <h1 style="text-align: center;">Hack the Hackathon</h1>
+        <div class="button-container">
+            <h3 style="text-align: center;">Wallet</h3>
+            <button id="signInButton" onclick="signIn()">
+                Sign In
+            </button>
         </div>
         <br>
         <div>
@@ -23,20 +36,7 @@
 
         <hr>
 
-        <h3>Deploy Team Token</h3>
-        <input placeholder="Team Name"></input> <br>
-        <input placeholder="Token Symbol"></input> <br>
-        <button>Deploy</button>
-
-        <hr>
-
-        <h3>Balances</h3>
-
-        <label id="tokenLabel"></label>
-
-
-
-
-        </div>
-    </body>
-</html>
+        <h3 style="text-align: center;">Deploy Team Token</h3>
+        <form id="tokenForm">
+            <input id="teamNameInput" placeholder="Team Name"></input> <br>
+            <input id="tokenSymbolInput" placeholder="Token Symbol"></input>
