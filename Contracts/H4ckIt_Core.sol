@@ -45,7 +45,7 @@ contract H4ckIt_Core{
         require(IsTeamContact[msg.sender] == true);
         AllBounties.push(Bounty(ID, Payout, true, Description, H4ckIt_Team(H4ckItTeam).Discord(), H4ckItTeam));
 
-        IDIndexer[H4ckItTeam][ID]
+        IDIndexer[H4ckItTeam][ID] =
 
         return(success);
     }
