@@ -74,7 +74,7 @@ contract H4ckIt_Team{
 
     struct Bounty{
         uint256 ID;
-        uint256 BountyAmount;
+        uint256 Payout;
         string Description;
         Application[] Applications;
     }
