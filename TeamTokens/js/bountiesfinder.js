@@ -564,6 +564,13 @@ async function signIn(truth) {
                 console.log(`Account: ${accounts[0]}`);
             }
 
+			const network = await provider.getNetwork();
+
+			if (Number(network.chainId) !== 100) {
+				alert("Unsupported Chain ID. Please switch to Gnosis Chain (100).");
+				throw new Error("Unsupported Chain ID");
+			}
+
             signer = await provider.getSigner();
 
             document.getElementById('signInButton').innerText = "Connected"
