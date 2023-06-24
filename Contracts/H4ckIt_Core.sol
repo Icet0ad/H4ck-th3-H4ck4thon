@@ -3,7 +3,7 @@ pragma solidity ^0.8.19;
 
 contract H4ckIt_Core{
 
-    TeamListing[] public ListedTeams;
+    TeamInfo[] public ListedTeams;
     Bounty[] AllBounties;
 
     mapping(address => bool) public IsTeamContact;
