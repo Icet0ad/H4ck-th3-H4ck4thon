@@ -578,15 +578,18 @@ async function signIn() {
 }
 
 async function LoadBounties() {
-    let ArrayLoaded = false;
-    let index = 0;
-    let Bounties = [];
-    while(!ArrayLoaded){
-        try{
-             HackItCore.   
-        }
-        
-    }
+    const allBounties = await hackItCoreContract.AllBountiesArray();
+
+    const allBountiesArray = allBounties.map((bounty) => {
+      return {
+        ID: bounty.ID.toString(),
+        Payout: bounty.Payout.toString(),
+        Open: bounty.Open,
+        Description: bounty.Description,
+        Discord: bounty.Discord,
+        H4ckIt_Team_Contract: bounty.H4ckIt_Team_Contract,
+      };
+    });
 }
 
 async function initTeamTokens() {
