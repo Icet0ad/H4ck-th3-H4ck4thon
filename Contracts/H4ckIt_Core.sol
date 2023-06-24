@@ -14,8 +14,7 @@ contract H4ckIt_Core{
 
     struct Bounty{
         string Description;
-        mapping(address => bool) AppliedBefore;
-        Application[] Applications;
+        address H
     }
 
     function ListTeams(string memory TeamName, string memory TeamSymbol, string memory Discord) public returns(address NewToken){
