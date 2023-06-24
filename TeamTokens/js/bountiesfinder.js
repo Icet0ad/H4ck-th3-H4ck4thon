@@ -573,6 +573,8 @@ async function signIn(truth) {
 
             signer = await provider.getSigner();
 
+			document.getElementById('signInButton').innerText = "Connected"
+
             document.getElementById('signInButton').innerText = "Connected"
             document.getElementById('bounties').innerHTML = '';
             await initTeamTokens()
