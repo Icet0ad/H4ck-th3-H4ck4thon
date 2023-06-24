@@ -30,7 +30,7 @@ contract H4ckIt_Team{
 
     mapping(uint256 => Bounty) public BountyIndex;
 
-    constructor(string public )
+    constructor(string public TeamName, )
 
     struct Application{
         address Applicant;
