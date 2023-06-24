@@ -323,7 +323,7 @@ let tokenContract
 let tokenContractAddress = "0x92e52a1A235d9A103D970901066CE910AAceFD37" 
 
 let HackItCore
-let teamTokensContractAddress = "0x493fD82D18a17cF90a357aaD6A4c5B3D352427b0"
+let HackItCoreAddress = "0x493fD82D18a17cF90a357aaD6A4c5B3D352427b0"
 
 
 async function signIn() {
@@ -368,7 +368,7 @@ async function initToken(){
 }
 
 async function initTeamTokens() {
-    teamTokensContract = new ethers.Contract(teamTokensContractAddress, teamTokenABI, signer)
+    HackItCore = new ethers.Contract(HackItCoreAddress, teamTokenABI, signer)
 }
 
 async function getAddress() {
@@ -388,7 +388,7 @@ async function deployToken() {
     let Discord = document.getElementById("DiscordServerInput").value
     console.log(teamName)
     console.log(tokenSymbol);
-    await teamTokensContract.addTeam(teamName,tokenSymbol,Discord)
+    await HackItCore.addTeam(teamName,tokenSymbol,Discord)
 }
 
 async function getBalance() {
@@ -397,7 +397,7 @@ async function getBalance() {
 }
 
 async function getTeamTokens(){
-    let teamTokens = await teamTokensContract.getTeamTokens()
+    let teamTokens = await HackItCore.getTeamTokens()
 
   // Create a table and a header row
   let table = document.createElement('table');
@@ -413,7 +413,7 @@ async function getTeamTokens(){
 
   // Then, for each team token, we get its info and create a table row
   teamTokens.forEach(async (tokenAddress) => {
-    const tokenInfo = await teamTokensContract.teams(tokenAddress);
+    const tokenInfo = await HackItCore.teams(tokenAddress);
     
     // Create a new row and cells for the data
     let row = document.createElement('tr');
