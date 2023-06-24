@@ -605,7 +605,7 @@ function createBountiesDiv(bountiesArray) {
       bountyDiv.id = bounty.ID;
   
       // Convert payout from wei to ether
-      const payoutEther = ethers.utils.formatUnits(payo)
+      const payoutEther = ethers.utils.formatUnits(bounty.Payout, 18)
   
       // Apply bold and slightly bigger styling to the text
       const style = 'font-weight: bold; font-size: 1.1em;';
