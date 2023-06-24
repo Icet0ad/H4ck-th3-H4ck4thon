@@ -32,7 +32,7 @@ contract H4ckIt_Core{
     function ListedTeamsArray() public view returns(TeamListing[]){
         return(ListedTeams);
     }
-    function ListedTeamsArray() public view returns(TeamListing[]){
+    function AllBountiesArray() public view returns(Bounty[]){
         return(ListedTeams);
     }
 
