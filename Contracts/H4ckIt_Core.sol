@@ -73,6 +73,7 @@ contract H4ckIt_Team{
     }
 
     struct Bounty{
+        uint256 ID;
         string Description;
         Application[] Applications;
     }
