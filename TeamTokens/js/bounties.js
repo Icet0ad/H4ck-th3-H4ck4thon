@@ -596,16 +596,6 @@ async function getEthBalance() {
     document.getElementById("ethBalanceLabel").innerHTML = "xDAI Balance: " + balance
 }
 
-async function deployToken() {
-    let teamName =  document.getElementById("teamNameInput").value 
-    let tokenSymbol = document.getElementById("tokenSymbolInput").value
-    let Discord = document.getElementById("DiscordServerInput").value
-    console.log(teamName)
-    console.log(tokenSymbol);
-    
-    await HackItCore.AddTeams(teamName,tokenSymbol,Discord);
-    
-}
 
 async function getBalance() {
     let amount = await tokenContract.balanceOf(signer.address)
