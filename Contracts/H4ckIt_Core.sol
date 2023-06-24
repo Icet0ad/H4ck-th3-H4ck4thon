@@ -111,11 +111,12 @@ contract H4ckIt_Team{
 
     function CloseBounty(uint256 ID){
         require(msg.sender == Operator);
-        BountyList[ID]
+        BountyList[ID].Open = false;
     }
 
      function ApplyToBounty(uint256 ID, string memory InitialMessage, string memory UserDiscord) public returns(bool success){
         require(AppliedBefore[ID][msg.sender] == false);
+        require(BountyList[ID].Open);
 
         BountyList[ID].Applications.push(Application(msg.sender, UserDiscord, InitalMessage, false));
         AppliedBefore[ID][msg.sender] = true;
