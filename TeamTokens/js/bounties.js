@@ -563,7 +563,7 @@ async function signIn() {
 
             signer = await provider.getSigner();
 
-            document.ge
+            document.getElementById('signInButton').innerText
             await initTeamTokens()
 
         } else {
