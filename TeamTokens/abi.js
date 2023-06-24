@@ -1,1 +1,1 @@
-CoreABI
+window.CoreABI = 
