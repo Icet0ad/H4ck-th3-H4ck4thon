@@ -1,6 +1,4 @@
-function login() {
-    
-}
+signIn()
 let accounts
 let provider
 let signer
