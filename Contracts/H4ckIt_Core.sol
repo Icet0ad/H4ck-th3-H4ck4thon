@@ -111,7 +111,7 @@ contract H4ckIt_Team{
 
     function CloseBounty(uint256 ID){
         require(msg.sender == Operator);
-        
+        BountyList[ID]
     }
 
      function ApplyToBounty(uint256 ID, string memory InitialMessage, string memory UserDiscord) public returns(bool success){
