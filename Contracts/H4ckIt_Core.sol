@@ -106,7 +106,7 @@ contract H4ckIt_Team{
         return(success);
      }
 
-    // function PayoutBounty()
+     function PayoutBounty() public 
 
 }
 
