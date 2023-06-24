@@ -79,6 +79,7 @@ contract H4ckIt_Team{
     }
 
     function CreateBounty(string memory Description) public returns(bool success){
+        require();
         Bounty memory NewBounty;
 
         NewBounty.ID = (BountyList.length + 1);
