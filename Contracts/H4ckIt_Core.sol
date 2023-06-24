@@ -91,7 +91,7 @@ contract H4ckIt_Team{
         return(success);
     }
 
-    function 
+    // function ApplyToBounty()
 
 }
 
