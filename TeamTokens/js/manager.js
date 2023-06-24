@@ -568,6 +568,8 @@ async function signIn() {
 				throw new Error("Unsupported Chain ID");
 			}
 
+			document.getElementById('signInButton').innerText = "Connected"
+
             signer = await provider.getSigner();
 			
 
