@@ -25,7 +25,6 @@ async function signIn() {
 
             await getAddress()
             await getEthBalance()
-            await initToken()
 
 
         } else {
@@ -36,4 +35,8 @@ async function signIn() {
         console.error(error);
         return null;
     }
+}
+
+async function getAddress() {
+    document.getElementById("addressLabel").innerHTML = "Your Address: " + signer.address
 }
