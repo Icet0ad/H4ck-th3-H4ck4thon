@@ -53,7 +53,7 @@ contract H4ckIt_Core{
      function CloseBounty(uint256 ID) public returns(bool success){
         require(IsTeamContact[msg.sender] == true);
 
-        IDIndexer[msg.sender][ID]
+        AllBounties[IDIndexer[msg.sender][ID]]
      }
 
 }
