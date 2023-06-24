@@ -28,7 +28,7 @@ contract H4ckIt_Team{
 
     struct Application{
         address Applicant;
-        
+        string Discord;
     }
 
     struct Bounty{
