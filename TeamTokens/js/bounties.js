@@ -639,7 +639,8 @@ function createBountiesDiv(bountiesArray) {
 
 async function Apply(address, ID){
     CurrentHackItTeam = new ethers.Contract(address, window.TeamABI, signer);
-    Discord = document.getElementById()
+    Discord = document.getElementById('discordinput').ariaValueMax;
+    if(Discord)
     CurrentHackItTeam.ApplyToBounty(ID, "Interested!", )
 }
   
