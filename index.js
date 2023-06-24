@@ -229,7 +229,7 @@ let erc20ABI = [
 ]
 
 let tokenContract
-let tokenContractAddress = "0x92e52a1A235d9A103D970901066CE910AAceFD37"
+let tokenContractAddress = "0x92e52a1A235d9A103D970901066CE910AAceFD37" 
 
 
 async function signIn() {
@@ -254,6 +254,7 @@ async function signIn() {
             signer = await provider.getSigner();
 
             await getAddress()
+            await getEthBalance()
             await initToken()
             await getBalance()
 
@@ -273,6 +274,10 @@ async function initToken(){
 
 async function getAddress() {
     document.getElementById("addressLabel").innerHTML = "Your Address: " + signer.address
+}
+
+async function getEthBalance() {
+    document.getAnimations("ethBalanceLabel").innerHTML = "xDAI Balance: " + await provider.getBalance(signer.address)
 }
 
 async function getBalance() {
