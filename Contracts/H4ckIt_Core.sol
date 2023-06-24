@@ -49,7 +49,8 @@ contract H4ckIt_Core{
 
      function CloseBounty() public returns(bool success){
         require(IsTeamContact[msg.sender] == true);
-        
+
+        AllBounties
      }
 
 }
