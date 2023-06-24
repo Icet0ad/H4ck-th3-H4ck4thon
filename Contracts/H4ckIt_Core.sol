@@ -26,12 +26,14 @@ contract H4ckIt_Core{
         address H4ckIt_Team_Contract;
     }
 
-    function AddTeams(string memory TeamName, string memory TeamSymbol, string memory Discord) public returns(address NewToken){
+    function AddTeams(string memory TeamName, string memory TeamSymbol, string memory Discord) public returns(address NewTeamAddress){
         address NewH4ckIt = address(new H4ckIt_Team(TeamName, TeamSymbol, Discord, msg.sender));
         TeamInfo memory NewTeam = TeamInfo(TeamName, TeamSymbol,Discord, msg.sender, NewH4ckIt);
         IsTeamContact[NewH4ckIt] = true;
 
         ListedTeams.push(NewTeam);
+
+        return(NewH4ckIt);
     }
 
     function ListedTeamsArray() public view returns(TeamInfo[] memory){
@@ -56,6 +58,8 @@ contract H4ckIt_Core{
         require(IsTeamContact[msg.sender] == true);
 
         AllBounties[IDIndexer[msg.sender][ID]].Open = false;
+
+        return(success);
      }
 
 }
@@ -70,6 +74,7 @@ contract H4ckIt_Team{
 
     mapping(uint256 => mapping(address => bool)) AppliedBefore;
     Bounty[] public BountyList;
+    mapping(uint256 => Application[]) public Applications;
 
     constructor(string memory _TeamName, string memory _TeamSymbol, string memory _Discord, address _Operator){
         ERC20 = address(new Token(10000000000000000000000, TeamName, TeamSymbol));
@@ -92,7 +97,6 @@ contract H4ckIt_Team{
         bool Open;
         uint256 Payout;
         string Description;
-        Application[] Applications;
     }
 
     function CreateBounty(string memory Description, uint256 TokenAmount) public returns(bool success){
@@ -114,13 +118,16 @@ contract H4ckIt_Team{
         require(msg.sender == Operator);
         BountyList[ID].Open = false;
         H4ckIt_Core(Core).CloseBounty(ID);
+
+        return(success);
     }
 
      function ApplyToBounty(uint256 ID, string memory InitialMessage, string memory UserDiscord) public returns(bool success){
         require(AppliedBefore[ID][msg.sender] == false);
         require(BountyList[ID].Open = true);
 
-        BountyList[ID].Applications.push(Application(msg.sender, UserDiscord, InitialMessage, false));
+        Application memory NewApp = Application(msg.sender, UserDiscord, InitialMessage, false);
+        Applications[ID].push(NewApp);
         AppliedBefore[ID][msg.sender] = true;
 
         return(success);
@@ -129,11 +136,16 @@ contract H4ckIt_Team{
      function PayoutBounty(uint256 BountyID, uint256 ApplicationID) public returns(bool success){
         require(msg.sender == Operator);
 
-        Token(ERC20).transfer(BountyList[BountyID].Applications[ApplicationID].Applicant, BountyList[BountyID].Payout);
+        Token(ERC20).transfer(Applications[BountyID][ApplicationID].Applicant, BountyList[BountyID].Payout);
         CloseBounty(BountyID);
 
         return(success);
      }
+
+     function AllBounties() public view returns(Bounty[] memory){
+        return(BountyList);
+    }
+
 
 }
 
