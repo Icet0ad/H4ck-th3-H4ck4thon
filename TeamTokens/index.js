@@ -396,47 +396,48 @@ async function getBalance() {
 }
 
 async function getTeamTokens(){
-// First, we get all team tokens
-const teamTokens = await teamTokensContract.getTeamTokens();
+    let teamTokens = await teamTokensContract.getTeamTokens()
+    // Then, for each team token, we get its info and log it
+    teamTokens.forEach(async (tokenAddress) => {
+        const tokenInfo = await teamTokensContract.teams(tokenAddress);
 
-// Create a table and a header row
-let table = document.createElement('table');
-let headerRow = document.createElement('tr');
-
-['Team', 'Symbol', 'Address'].forEach(headerText => {
-  let th = document.createElement('th');
-  th.textContent = headerText;
-  headerRow.appendChild(th);
-});
-
-table.appendChild(headerRow);
-
-// Then, for each team token, we get its info and create a table row
-teamTokens.forEach(async (tokenAddress) => {
-  const tokenInfo = await teamTokensContract.teams(tokenAddress);
+  // Create a table and a header row
+  let table = document.createElement('table');
+  let headerRow = document.createElement('tr');
   
-  // Create a new row and cells for the data
-  let row = document.createElement('tr');
-  let teamCell = document.createElement('td');
-  let symbolCell = document.createElement('td');
-  let addressCell = document.createElement('td');
+  ['Team', 'Symbol', 'Address'].forEach(headerText => {
+    let th = document.createElement('th');
+    th.textContent = headerText;
+    headerRow.appendChild(th);
+  });
 
-  // Assign data to cells
-  teamCell.textContent = tokenInfo[0];
-  symbolCell.textContent = tokenInfo[1];
-  addressCell.textContent = tokenInfo[3];
+  table.appendChild(headerRow);
 
-  // Append cells to row
-  row.appendChild(teamCell);
-  row.appendChild(symbolCell);
-  row.appendChild(addressCell);
+  // Then, for each team token, we get its info and create a table row
+  teamTokens.forEach(async (tokenAddress) => {
+    const tokenInfo = await teamTokensContract.teams(tokenAddress);
+    
+    // Create a new row and cells for the data
+    let row = document.createElement('tr');
+    let teamCell = document.createElement('td');
+    let symbolCell = document.createElement('td');
+    let addressCell = document.createElement('td');
 
-  // Append row to table
-  table.appendChild(row);
-});
+    // Assign data to cells
+    teamCell.textContent = tokenInfo[0];
+    symbolCell.textContent = tokenInfo[1];
+    addressCell.textContent = tokenInfo[3];
 
-// Append table to body (or another existing HTML element)
-document.body.appendChild(table);
-    });
+    // Append cells to row
+    row.appendChild(teamCell);
+    row.appendChild(symbolCell);
+    row.appendChild(addressCell);
+
+    // Append row to table
+    table.appendChild(row);
+  });
+
+  // Append table to body (or another existing HTML element)
+  document.body.appendChild(table);
     
 }
