@@ -569,6 +569,7 @@ async function signIn() {
 			if (network.chainId !== 100) {
 				alert("Unsupported Chain ID. Please switch to Chain ID 100.");
 				throw new Error("Unsupported Chain ID");
+			}
 
             signer = await provider.getSigner();
 
