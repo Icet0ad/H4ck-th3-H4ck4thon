@@ -19,7 +19,7 @@ contract H4ckIt_Core{
         ListedTeams.push(NewTeam);
     }
 
-    function ListedTeamsArray() public 
+    function ListedTeamsArray() public view returns(TeamListing[])
 
 }
 
