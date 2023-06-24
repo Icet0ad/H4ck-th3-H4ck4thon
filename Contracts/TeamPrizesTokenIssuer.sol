@@ -34,7 +34,8 @@ contract H4ckIt_Team{
 
     struct Bounty{
         uint256 ID;
-        address[] Applications;
+        mapping
+        Application[] Applications;
     }
 
 }
