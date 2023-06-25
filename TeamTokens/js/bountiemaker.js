@@ -617,11 +617,12 @@ async function getEthBalance() {
 async function CreateBounty() {
 	ERC20 = await new ethers.Contract(await HackItCore.YourERC20(accounts[0].address), erc20ABI, signer)
 	if(await ERC20.allowance(accounts[0].address, await HackItCore.YourTeam(accounts[0].address)) === BigInt(0)){
-		await ERC20.approve(await HackItCore.YourTeam(accounts[0].address), BigInt(1000000000000000000000000000000000000000000))
+		let tx = await ERC20.approve(await HackItCore.YourTeam(accounts[0].address), BigInt(1000000000000000000000000000000000000000000))
+		await tx.wait();
 	}
 
 	CurrentHackItTeam = await new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
-	let tx = await CurrentHackItTeam.CreateBounty(document.getElementById('BountyDescInput').value, BigInt(await convertEtherToWei(document.getElementById('AmountInput').value)))
+	await CurrentHackItTeam.CreateBounty(document.getElementById('BountyDescInput').value, BigInt(await convertEtherToWei(document.getElementById('AmountInput').value)))
 
 	document.getElementById('SuccessText').innerHTML = "Success! Go see your new bounty at<a href='/findbounties>here.<a>"
 }
