@@ -604,7 +604,7 @@ async function LoadBounties() {
       };
     });
 	console.log(allBountiesArray);
-    //createBountiesDiv(allBountiesArray);
+    createBountiesDiv(allBountiesArray);
 }
 
 function createBountiesDiv(bountiesArray) {
