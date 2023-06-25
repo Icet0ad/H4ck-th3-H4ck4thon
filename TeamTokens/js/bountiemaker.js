@@ -642,6 +642,8 @@ async function LoadBounties() {
       };
     });
 
+	HackItCore.
+
 	MyBounties = allBountiesArray.filter((element) => { return element.includes(); });
 	console.log(MyBounties);
     createBountiesDiv(allBountiesArray);
