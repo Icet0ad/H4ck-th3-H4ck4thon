@@ -539,10 +539,10 @@ let tokenContract
 let tokenContractAddress = "0x92e52a1A235d9A103D970901066CE910AAceFD37" 
 
 let HackItCore
-let HackItCoreAddress = "0xF2884E217e6Bc8670A559a0e40dAC6202dd4a66a"
+let HackItCoreAddress = "0xF063BeccBccA5698532673de7E454Acd8B603BEA"
 
 let oldcore
-let oldcoreaddress = "0xF2884E217e6Bc8670A559a0e40dAC6202dd4a66a"
+let oldcoreaddress
 
 let CurrentHackItTeam;
 let CurrentHackItTeamAddress;
@@ -603,7 +603,6 @@ SuccessText
 
 async function initTeamTokens() {
     HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
-	oldcore = new ethers.Contract(oldcoreaddress, window.CoreABI, signer)
 }
 
 async function LoadBounties() {
@@ -667,11 +666,11 @@ async function getEthBalance() {
 
 async function CreateBounty() {
 	ERC20 = new ethers.Contract(await HackItCore.YourERC20(accounts[0].address), erc20ABI, signer)
-	if(ERC20.allowance(accounts[0].address, HackItCoreAddress) != 10000000000000000000000000000000000000000000){
+	if(ERC20.allowance(accounts[0].address, HackItCore) == 0){
 		await ERC20.approve(HackItCoreAddress, BigInt(1000000000000000000000000000000000000000000))
 	}
 
-	CurrentHackItTeam = new ethers.Contract(HackItCoreAddress, window.TeamABI, signer);
+	CurrentHackItTeam = new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
 	CurrentHackItTeam.CreateBounty(document.getElementById('BountyDescInput').value, convertEtherToWei(document.getElementById('AmountInput').value))
 
 	document.getElementById('SuccessText').innerHTML = "Success! Go see your new bounty<a href='/findbounties'>here</a>."
