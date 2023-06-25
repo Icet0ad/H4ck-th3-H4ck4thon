@@ -610,7 +610,8 @@ async function getEthBalance() {
 }
 
 async function CreateBounty() {
-	ERC20 = new ethers.Contract(HackItCore.YourERC20(accounts[0].address, erc20ABI)
+	ERC20 = new ethers.Contract(HackItCore.YourERC20(accounts[0].address, erc20ABI, signer);
+	
 }
 
 
