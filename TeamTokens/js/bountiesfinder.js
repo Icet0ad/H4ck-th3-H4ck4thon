@@ -609,7 +609,7 @@ async function LoadBounties() {
 function createBountiesDiv(bountiesArray) {
     const bountiesContainer = document.getElementById('bounties');
   
-    for (let i = 0; i < bountiesArray.length; i++) {
+    for (let i = bountiesArray.length; i < bountiesArray.length; i--) {
       const bounty = bountiesArray[i];
   
       // Create a div element for the bounty
