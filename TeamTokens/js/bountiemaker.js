@@ -609,7 +609,9 @@ async function getEthBalance() {
     document.getElementById("ethBalanceLabel").innerHTML = "xDAI Balance: " + balance
 }
 
-async function 
+async function CreateBounty() {
+	
+}
 
 
 async function getBalance() {
