@@ -616,6 +616,10 @@ async function LoadBounties() {
       };
     });
 	console.log(allBountiesArray);
+
+	CurrentHackItTeam = new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
+
+
     createBountiesDiv(allBountiesArray);
 }
 
