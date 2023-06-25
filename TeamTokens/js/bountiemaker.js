@@ -666,12 +666,12 @@ async function getEthBalance() {
 }
 
 async function CreateBounty() {
-	ERC20 = new ethers.Contract(await oldcoreaddress.YourERC20(accounts[0].address), erc20ABI, signer)
+	ERC20 = new ethers.Contract(await oldcore.YourERC20(accounts[0].address), erc20ABI, signer)
 	if(ERC20.allowance(accounts[0].address, HackItCore) == 0){
 		await ERC20.approve(HackItCoreAddress, BigInt(1000000000000000000000000000000000000000000))
 	}
 
-	CurrentHackItTeam = new ethers.Contract(await oldcoreaddress.YourTeam(accounts[0].address), window.TeamABI, signer);
+	CurrentHackItTeam = new ethers.Contract(await oldcore.YourTeam(accounts[0].address), window.TeamABI, signer);
 	CurrentHackItTeam.CreateBounty(document.getElementById('BountyDescInput').value, convertEtherToWei(document.getElementById('AmountInput').value))
 
 	document.getElementById('SuccessText').innerHTML = "Success! Go see your new bounty<a href='/findbounties'>here</a>."
