@@ -592,7 +592,7 @@ async function signIn() {
     return etherAmount;
   }
 
-  function convertEtherToWei(etherAmount) {
+  async function convertEtherToWei(etherAmount) {
 	const weiAmount = BigInt(etherAmount) * BigInt(10 ** 18);
 	return weiAmount;
   }
@@ -621,7 +621,7 @@ async function CreateBounty() {
 	}
 
 	CurrentHackItTeam = new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
-	CurrentHackItTeam.CreateBounty(document.getElementById('BountyDescInput').value, convertEtherToWei(document.getElementById('AmountInput').value))
+	CurrentHackItTeam.CreateBounty(document.getElementById('BountyDescInput').value, await convertEtherToWei(document.getElementById('AmountInput').value))
 
 	document.getElementById('SuccessText').innerHTML = "Success! Go see your new bounty at<a href='/findbounties<a>"
 }
