@@ -642,7 +642,7 @@ function createBountiesDiv(bountiesArray) {
   }
 
   function convertWeiToEther(weiAmount) {
-    const etherAmount = BigInt(weiAmount) / BigInt(10 ** 18);
+    const etherAmount = weiAmount / (10 ** 18);
     return etherAmount.toString();
   }
 
