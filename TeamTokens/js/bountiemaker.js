@@ -610,7 +610,7 @@ async function getEthBalance() {
 }
 
 async function CreateBounty() {
-	HackItCore.YourERC20(accounts)
+	HackItCore.YourERC20(accounts[0].address)
 }
 
 
