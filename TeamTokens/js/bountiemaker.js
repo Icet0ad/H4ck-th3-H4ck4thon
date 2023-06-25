@@ -642,8 +642,6 @@ function createBountiesDiv(bountiesArray) {
       <p><strong>Payout:</strong> ${payoutEther} Team Prize Tokens</p>
       <p><strong>Status:</strong> ${bounty.Open ? 'Open' : 'Closed'}</p>
       <p><strong>Description:</strong> ${bounty.Description}</p>
-      <p><strong>Discord:</strong> <a href="${bounty.Discord}">${bounty.Discord}</a></p>
-      <p><strong>Team Contract:</strong> ${bounty.H4ckIt_Team_Contract}</p>
       <button style="max-width: 10vw" onclick="Apply('${bounty.H4ckIt_Team_Contract}', '${bounty.ID}')">Apply</button>
     `;
   
