@@ -603,6 +603,7 @@ async function initTeamTokens() {
 }
 
 async function LoadBounties() {
+	CurrentHackItTeam = new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
     const allBounties = await HackItCore.AllBountiesArray();
 
     const allBountiesArray = allBounties.map((bounty) => {
@@ -617,9 +618,9 @@ async function LoadBounties() {
     });
 	console.log(allBountiesArray);
 
-	CurrentHackItTeam = new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
-
 	
+
+
     createBountiesDiv(allBountiesArray);
 }
 
