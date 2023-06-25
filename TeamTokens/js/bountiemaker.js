@@ -539,10 +539,7 @@ let tokenContract
 let tokenContractAddress = "0x92e52a1A235d9A103D970901066CE910AAceFD37" 
 
 let HackItCore
-let HackItCoreAddress = "0xF063BeccBccA5698532673de7E454Acd8B603BEA"
-
-let oldcore
-let oldcoreaddress
+let HackItCoreAddress = "0xF2884E217e6Bc8670A559a0e40dAC6202dd4a66a"
 
 let CurrentHackItTeam;
 let CurrentHackItTeamAddress;
@@ -577,6 +574,7 @@ async function signIn() {
             signer = await provider.getSigner();
 
             document.getElementById('signInButton').innerText = "Connected"
+            document.getElementById('bounties').innerHTML = '';
             await initTeamTokens()
 
         } else {
@@ -605,54 +603,6 @@ async function initTeamTokens() {
     HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
 }
 
-async function LoadBounties() {
-	CurrentHackItTeam = new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
-    const allBounties = await CurrentHackItTeam.AllBounties();
-
-    const allBountiesArray = allBounties.map((bounty) => {
-      return {
-        ID: bounty.ID.toString(),
-        Open: bounty.Open,
-		Payout: bounty.Payout,
-        Description: bounty.Description
-      };
-    });
-	console.log(allBountiesArray);
-
-	
-    createBountiesDiv(allBountiesArray);
-}
-
-function createBountiesDiv(bountiesArray) {
-    const bountiesContainer = document.getElementById('bounties');
-  
-    for (let i = bountiesArray.length - 1; i >= 0; i--) {
-      const bounty = bountiesArray[i];
-  
-      // Create a div element for the bounty
-      const bountyDiv = document.createElement('box');
-      bountyDiv.classList.add('bounty-box');
-      bountyDiv.id = bounty.ID;
-  
-      // Convert payout from wei to ether
-      const payoutEther = convertWeiToEther(bounty.Payout);
-  
-      // Apply bold and slightly bigger styling to the text
-  
-      // Add information about the bounty to the div
-      bountyDiv.innerHTML = `
-      <p><strong>Payout:</strong> ${payoutEther} Team Prize Tokens</p>
-      <p><strong>Status:</strong> ${bounty.Open ? 'Open' : 'Closed'}</p>
-      <p><strong>Description:</strong> ${bounty.Description}</p>
-    `;
-  
-      // Append the bounty div to the container
-      const br = document.createElement('br');
-      bountiesContainer.appendChild(br);
-      bountiesContainer.appendChild(bountyDiv);
-    }
-  }
-
 async function getAddress() {
     document.getElementById("addressLabel").innerHTML = "Your Address: " + signer.address
 }
@@ -666,14 +616,14 @@ async function getEthBalance() {
 
 async function CreateBounty() {
 	ERC20 = new ethers.Contract(await HackItCore.YourERC20(accounts[0].address), erc20ABI, signer)
-	if(ERC20.allowance(accounts[0].address, HackItCore) == 0){
-		await ERC20.approve(HackItCoreAddress, BigInt(1000000000000000000000000000000000000000000))
+	if(ERC20.allowance(accounts[0].address, await HackItCore.YourTeam(accounts[0].address)) == 0){
+		await ERC20.approve(await HackItCore.YourTeam(accounts[0].address), BigInt(1000000000000000000000000000000000000000000))
 	}
 
 	CurrentHackItTeam = new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
 	CurrentHackItTeam.CreateBounty(document.getElementById('BountyDescInput').value, convertEtherToWei(document.getElementById('AmountInput').value))
 
-	document.getElementById('SuccessText').innerHTML = "Success! Go see your new bounty<a href='/findbounties'>here</a>."
+	document.getElementById('SuccessText').innerHTML = "Success! Go see your new bounty at<a href='/findbounties'><a"
 }
 
 
