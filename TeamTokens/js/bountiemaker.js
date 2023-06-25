@@ -642,7 +642,7 @@ async function LoadBounties() {
       };
     });
 
-	
+	MyBounties = 
 	console.log(allBountiesArray);
     createBountiesDiv(allBountiesArray);
 }
