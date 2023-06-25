@@ -642,7 +642,7 @@ async function LoadBounties() {
       };
     });
 
-	MyBounties = allBountiesArray.filter((element) => { return element.includes("x"); });
+	MyBounties = allBountiesArray.filter((element) => { return element.includes(); });
 	console.log(MyBounties);
     createBountiesDiv(allBountiesArray);
 }
