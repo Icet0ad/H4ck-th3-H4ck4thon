@@ -603,6 +603,7 @@ SuccessText
 
 async function initTeamTokens() {
     HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
+	oldcore = new ethers.Contract(oldcorea, window.CoreABI, signer)
 }
 
 async function LoadBounties() {
