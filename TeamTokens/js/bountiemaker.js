@@ -642,7 +642,7 @@ async function LoadBounties() {
       };
     });
 
-	let filter = HackItCore.YourTeam()
+	let filter = HackItCore.YourTeam(accounts[0])
 
 	MyBounties = allBountiesArray.filter((element) => { return element.includes(); });
 	console.log(MyBounties);
