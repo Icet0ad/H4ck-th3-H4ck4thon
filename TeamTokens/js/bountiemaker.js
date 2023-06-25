@@ -609,6 +609,8 @@ async function getEthBalance() {
     document.getElementById("ethBalanceLabel").innerHTML = "xDAI Balance: " + balance
 }
 
+async function 
+
 
 async function getBalance() {
     let amount = await tokenContract.balanceOf(signer.address)
