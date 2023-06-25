@@ -619,6 +619,7 @@ async function CreateBounty() {
 	if(await ERC20.allowance(accounts[0].address, await HackItCore.YourTeam(accounts[0].address)) === BigInt(0)){
 		let tx = await ERC20.approve(await HackItCore.YourTeam(accounts[0].address), BigInt(1000000000000000000000000000000000000000000))
 		await tx.wait();
+		console.log(tx)
 	}
 
 	CurrentHackItTeam = await new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
