@@ -620,6 +620,40 @@ async function LoadBounties() {
     createBountiesDiv(allBountiesArray);
 }
 
+function createBountiesDiv(bountiesArray) {
+    const bountiesContainer = document.getElementById('bounties');
+  
+    for (let i = bountiesArray.length - 1; i >= 0; i--) {
+      const bounty = bountiesArray[i];
+  
+      // Create a div element for the bounty
+      const bountyDiv = document.createElement('box');
+      bountyDiv.classList.add('bounty-box');
+      bountyDiv.id = bounty.ID;
+  
+      // Convert payout from wei to ether
+      const payoutEther = convertWeiToEther(bounty.Payout);
+  
+      // Apply bold and slightly bigger styling to the text
+      const style = 'font-weight: bold; font-size: 1.1em;';
+  
+      // Add information about the bounty to the div
+      bountyDiv.innerHTML = `
+      <p><strong>Payout:</strong> ${payoutEther} Team Prize Tokens</p>
+      <p><strong>Status:</strong> ${bounty.Open ? 'Open' : 'Closed'}</p>
+      <p><strong>Description:</strong> ${bounty.Description}</p>
+      <p><strong>Discord:</strong> <a href="${bounty.Discord}">${bounty.Discord}</a></p>
+      <p><strong>Team Contract:</strong> ${bounty.H4ckIt_Team_Contract}</p>
+      <button style="max-width: 10vw" onclick="Apply('${bounty.H4ckIt_Team_Contract}', '${bounty.ID}')">Apply</button>
+    `;
+  
+      // Append the bounty div to the container
+      const br = document.createElement('br');
+      bountiesContainer.appendChild(br);
+      bountiesContainer.appendChild(bountyDiv);
+    }
+  }
+
 async function getAddress() {
     document.getElementById("addressLabel").innerHTML = "Your Address: " + signer.address
 }
