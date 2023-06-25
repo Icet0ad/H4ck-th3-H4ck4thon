@@ -611,16 +611,12 @@ async function LoadBounties() {
         ID: bounty.ID.toString(),
         Open: bounty.Open,
 		Payout: bounty.Payout.toString(),
-        Description: bounty.Description,
-        Discord: bounty.Discord,
-        H4ckIt_Team_Contract: bounty.H4ckIt_Team_Contract,
+        Description: bounty.Description
       };
     });
 	console.log(allBountiesArray);
 
 	
-
-
     createBountiesDiv(allBountiesArray);
 }
 
