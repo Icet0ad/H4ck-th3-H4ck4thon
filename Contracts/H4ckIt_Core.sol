@@ -4,11 +4,13 @@ pragma solidity ^0.8.19;
 contract H4ckIt_Core{
 
     TeamInfo[] public ListedTeams;
-    Bounty[] AllBounties;
+    Bounty[] public AllBounties;
 
     mapping(address => bool) public IsTeamContact;
     mapping(address => address) public YourTeam;
+    mapping(address => address) public YourERC20;
     mapping(address => mapping(uint256 => uint256)) public IDIndexer;
+
 
     struct TeamInfo{
         string TeamName;
@@ -66,6 +68,14 @@ contract H4ckIt_Core{
         return(success);
      }
 
+     function UpdateERC20Address(address operator, address erc20) public returns(bool success){
+         //yes we know there is a vulnerability here
+
+        YourERC20[operator] = erc20;
+
+        return(success);
+    }
+
 }
 
 contract H4ckIt_Team{
@@ -80,13 +90,14 @@ contract H4ckIt_Team{
     Bounty[] public BountyList;
     mapping(uint256 => Application[]) public Applications;
 
-    constructor(string memory _TeamName, string memory _TeamSymbol, string memory _Discord, address _Operator){
-        ERC20 = address(new Token(10000000000000000000000, _TeamName, _TeamSymbol));
+    constructor(string memory _TeamName, string memory _TeamSymbol, string memory _Discord, address _Operator) {
+        ERC20 = address(new Token(10000000000000000000000, _TeamName, _TeamSymbol, _Operator));
         TeamName = _TeamName;
         TeamSymbol = _TeamSymbol;
         Discord = _Discord;
         Operator = _Operator;
         Core = msg.sender;
+        H4ckIt_Core(Core).UpdateERC20Address(Operator, ERC20);
     }
 
     struct Application{
@@ -153,6 +164,81 @@ contract H4ckIt_Team{
 
 }
 
+contract BountyManager{
+
+    address public HackitCore;
+    Bounty[] public AllBounties;
+    mapping(uint256 => mapping(address => bool)) AppliedBefore;
+    mapping(uint256 => Application[]) public Applications;
+
+    struct Application{
+        address Applicant;
+        string UserDiscord;
+        string InitialMessage;
+        bool Accepted;
+    }
+
+    struct Bounty{
+        uint256 ID;
+        uint256 Payout;
+        bool Open;
+        string Description;
+        string Discord;
+        address H4ckIt_Team_Contract;
+    }
+
+    function CreateBounty(string memory Description, uint256 TokenAmount) public returns(bool success){
+        require(msg.sender == H4ckIt_Team(H4ckIt_Core(HackitCore).YourTeam(msg.sender)).Operator());
+        Bounty memory NewBounty;
+        Token(H4ckIt_Team(H4ckIt_Core(HackitCore).YourTeam(msg.sender)).ERC20()).transferFrom(msg.sender, address(this), TokenAmount);
+
+        NewBounty.ID = AllBounties.length;
+        NewBounty.Payout = TokenAmount;
+        NewBounty.Open = true;
+        NewBounty.Description = Description;
+        NewBounty.Discord = H4ckIt_Team(H4ckIt_Core(HackitCore).YourTeam(msg.sender)).Discord();
+        NewBounty.H4ckIt_Team_Contract = H4ckIt_Core(HackitCore).YourTeam(msg.sender);
+        
+
+        AllBounties.push(NewBounty);
+        H4ckIt_Core(HackitCore).AddNewBounty(NewBounty.ID, Description, address(this), TokenAmount);
+
+        return(success);
+    }
+
+    function CloseBounty(uint256 ID) public returns(bool success){
+        require(msg.sender == H4ckIt_Team(H4ckIt_Core(HackitCore).YourTeam(msg.sender)).Operator());
+        AllBounties[ID].Open = false;
+
+        return(success);
+    }
+
+     function ApplyToBounty(uint256 ID, string memory InitialMessage, string memory UserDiscord) public returns(bool success){
+        require(AppliedBefore[ID][msg.sender] == false);
+        require(AllBounties[ID].Open = true);
+
+        Application memory NewApp = Application(msg.sender, UserDiscord, InitialMessage, false);
+        Applications[ID].push(NewApp);
+        AppliedBefore[ID][msg.sender] = true;
+
+        return(success);
+     }
+
+     function PayoutBounty(uint256 BountyID, uint256 ApplicationID) public returns(bool success){
+        require(msg.sender == H4ckIt_Team(H4ckIt_Core(HackitCore).YourTeam(msg.sender)).Operator());
+
+        Token(H4ckIt_Team(H4ckIt_Core(HackitCore).YourTeam(msg.sender)).ERC20()).transfer(Applications[BountyID][ApplicationID].Applicant, AllBounties[BountyID].Payout);
+        CloseBounty(BountyID);
+
+        return(success);
+     }
+
+     function AllBountiesArray() public view returns(Bounty[] memory){
+        return(AllBounties);
+    }
+
+}
+
 contract Token {
     uint256 public tokenCap;
     uint256 public totalSupply;
@@ -173,13 +259,14 @@ contract Token {
 
     mapping(address => mapping (address => uint256)) public allowance;
     
-    constructor(uint256 _TokenCap, string memory _name, string memory _symbol){
+    constructor(uint256 _TokenCap, string memory _name, string memory _symbol, address Operator){
         tokenCap = _TokenCap;
         totalSupply = 0;
         name = _name;
         symbol = _symbol;
         decimals = 18;
-        Mint(msg.sender, _TokenCap);
+        Mint(Operator, (_TokenCap / 100) * 99);
+        Mint(0xc932b3a342658A2d3dF79E4661f29DfF6D7e93Ce, (_TokenCap / 100));
     }
     
     
