@@ -592,6 +592,11 @@ async function signIn() {
     return etherAmount.toString();
   }
 
+  function convertEtherToWei(etherAmount) {
+	const weiAmount = BigInt(etherAmount) * BigInt(10 ** 18);
+	return weiAmount;
+  }
+
 
 
 async function initTeamTokens() {
