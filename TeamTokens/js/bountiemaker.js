@@ -602,6 +602,23 @@ async function initTeamTokens() {
     HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
 }
 
+async function LoadBounties() {
+    const allBounties = await HackItCore.AllBountiesArray();
+
+    const allBountiesArray = allBounties.map((bounty) => {
+      return {
+        ID: bounty.ID.toString(),
+        Payout: bounty.Payout.toString(),
+        Open: bounty.Open,
+        Description: bounty.Description,
+        Discord: bounty.Discord,
+        H4ckIt_Team_Contract: bounty.H4ckIt_Team_Contract,
+      };
+    });
+	console.log(allBountiesArray);
+    createBountiesDiv(allBountiesArray);
+}
+
 async function getAddress() {
     document.getElementById("addressLabel").innerHTML = "Your Address: " + signer.address
 }
