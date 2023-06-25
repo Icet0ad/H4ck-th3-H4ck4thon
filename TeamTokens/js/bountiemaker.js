@@ -610,7 +610,7 @@ async function getAddress() {
 async function getEthBalance() {
     console.log("getEthBalance")
     let balance = await provider.getBalance(signer.address)
-    balance = ethers.formatEther(balance)
+    balance = ethers.formatEther(balance)z
     document.getElementById("ethBalanceLabel").innerHTML = "xDAI Balance: " + balance
 }
 
