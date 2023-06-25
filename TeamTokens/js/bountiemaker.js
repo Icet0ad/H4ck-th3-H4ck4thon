@@ -587,7 +587,7 @@ async function signIn() {
     }
 }
 
-  function convertWeiToEther(weiAmount) {
+  async function convertWeiToEther(weiAmount) {
     const etherAmount = BigInt(weiAmount) / BigInt(10 ** 18);
     return etherAmount;
   }
