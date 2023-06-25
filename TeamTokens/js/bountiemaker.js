@@ -542,7 +542,7 @@ let HackItCore
 let HackItCoreAddress = "0xF063BeccBccA5698532673de7E454Acd8B603BEA"
 
 let oldcore
-let oldcoreaddress
+let oldcoreaddress = "0xF2884E217e6Bc8670A559a0e40dAC6202dd4a66a"
 
 let CurrentHackItTeam;
 let CurrentHackItTeamAddress;
