@@ -597,7 +597,7 @@ async function signIn() {
 	return weiAmount;
   }
 
-
+SuccessText
 
 async function initTeamTokens() {
     HackItCore = new ethers.Contract(HackItCoreAddress, window.CoreABI, signer)
@@ -622,6 +622,8 @@ async function CreateBounty() {
 
 	CurrentHackItTeam = new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
 	CurrentHackItTeam.CreateBounty(document.getElementById('BountyDescInput').value, convertEtherToWei(document.getElementById('AmountInput').value))
+
+	SuccessText =
 }
 
 
