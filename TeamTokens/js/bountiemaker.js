@@ -642,8 +642,8 @@ async function LoadBounties() {
       };
     });
 
-	MyBounties = 
-	console.log(allBountiesArray);
+	MyBounties = allBountiesArray
+	console.log(MyBounties);
     createBountiesDiv(allBountiesArray);
 }
 
