@@ -609,8 +609,8 @@ async function LoadBounties() {
     const allBountiesArray = allBounties.map((bounty) => {
       return {
         ID: bounty.ID.toString(),
-        Payout: bounty.Payout.toString(),
         Open: bounty.Open,
+		Payout: bounty.Payout.toString(),
         Description: bounty.Description,
         Discord: bounty.Discord,
         H4ckIt_Team_Contract: bounty.H4ckIt_Team_Contract,
