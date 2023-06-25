@@ -668,7 +668,7 @@ async function getEthBalance() {
 async function CreateBounty() {
 	ERC20 = new ethers.Contract(await oldcore.YourERC20(accounts[0].address), erc20ABI, signer)
 	if(BigInt(ERC20.allowance(accounts[0].address, HackItCoreAddress)) != BigInt(10000000000000000000000000000000000000000000){
-		await ERC20.approve(HackItCoreAddress, 1000000000000000000000000000000000000000000)
+		await ERC20.approve(HackItCoreAddress, BigInt(1000000000000000000000000000000000000000000))
 	}
 
 	CurrentHackItTeam = new ethers.Contract(HackItCoreAddress, window.TeamABI, signer);
