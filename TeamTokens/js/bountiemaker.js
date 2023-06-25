@@ -541,6 +541,8 @@ let tokenContractAddress = "0x92e52a1A235d9A103D970901066CE910AAceFD37"
 let HackItCore
 let HackItCoreAddress = "0xF063BeccBccA5698532673de7E454Acd8B603BEA"
 
+let oldcore
+
 let CurrentHackItTeam;
 let CurrentHackItTeamAddress;
 
