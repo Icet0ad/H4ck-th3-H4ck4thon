@@ -671,7 +671,7 @@ async function CreateBounty() {
 		await ERC20.approve(HackItCoreAddress, BigInt(1000000000000000000000000000000000000000000))
 	}
 
-	CurrentHackItTeam = new ethers.Contract(await oldcore.YourTeam(accounts[0].address), window.TeamABI, signer);
+	CurrentHackItTeam = new ethers.Contract(await HackItCoreAddress, window.TeamABI, signer);
 	CurrentHackItTeam.CreateBounty(document.getElementById('BountyDescInput').value, convertEtherToWei(document.getElementById('AmountInput').value))
 
 	document.getElementById('SuccessText').innerHTML = "Success! Go see your new bounty<a href='/findbounties'>here</a>."
