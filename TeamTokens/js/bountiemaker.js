@@ -574,7 +574,6 @@ async function signIn() {
             signer = await provider.getSigner();
 
             document.getElementById('signInButton').innerText = "Connected"
-            document.getElementById('bounties').innerHTML = '';
             await initTeamTokens()
 
         } else {
