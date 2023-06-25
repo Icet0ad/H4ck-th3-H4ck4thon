@@ -610,7 +610,7 @@ async function getAddress() {
 async function getEthBalance() {
     console.log("getEthBalance")
     let balance = await provider.getBalance(signer.address)
-    balance = ethers.formatEther(balance)z
+    balance = ethers.formatEther(balance)
     document.getElementById("ethBalanceLabel").innerHTML = "xDAI Balance: " + balance
 }
 
@@ -623,7 +623,7 @@ async function CreateBounty() {
 	CurrentHackItTeam = new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
 	CurrentHackItTeam.CreateBounty(document.getElementById('BountyDescInput').value, convertEtherToWei(document.getElementById('AmountInput').value))
 
-	document.getElementById('SuccessText').innerHTML = "Success! Go see your new bounty at<a href='/findbounties'><a>"
+	document.getElementById('SuccessText').innerHTML = "Success! Go see your new bounty at<a href='/findbounties<a>"
 }
 
 
