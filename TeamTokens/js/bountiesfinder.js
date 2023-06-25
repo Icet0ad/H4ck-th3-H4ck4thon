@@ -603,7 +603,8 @@ async function LoadBounties() {
         H4ckIt_Team_Contract: bounty.H4ckIt_Team_Contract,
       };
     });
-    createBountiesDiv(allBountiesArray);
+	console.log(allBountiesArray);
+    //createBountiesDiv(allBountiesArray);
 }
 
 function createBountiesDiv(bountiesArray) {
