@@ -622,7 +622,7 @@ async function CreateBounty() {
 	CurrentHackItTeam = new ethers.Contract(await HackItCore.YourTeam(accounts[0].address), window.TeamABI, signer);
 	CurrentHackItTeam.CreateBounty(document.getElementById('BountyDescInput').value, convertEtherToWei(document.getElementById('AmountInput').value))
 
-	document.getElementById('SuccessText').innerHTML = "Success! Go see your new bounty at<span href='/findbounties'>here</span>."
+	document.getElementById('SuccessText').innerHTML = "Success! Go see your new bounty at<a href='/findbounties'>here</a>."
 }
 
 
