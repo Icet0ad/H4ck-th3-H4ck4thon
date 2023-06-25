@@ -610,7 +610,7 @@ async function LoadBounties() {
       return {
         ID: bounty.ID.toString(),
         Open: bounty.Open,
-		Payout: bounty.Payout.toString(),
+		Payout: bounty.Payout,
         Description: bounty.Description
       };
     });
