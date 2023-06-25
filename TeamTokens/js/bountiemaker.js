@@ -616,7 +616,7 @@ async function getEthBalance() {
 
 async function CreateBounty() {
 	ERC20 = new ethers.Contract(await HackItCore.YourERC20(accounts[0].address), erc20ABI, signer)
-	if(await ERC20.allowance(accounts[0].address, await HackItCore.YourTeam(accounts[0].address)) !== BigInt(0)){
+	if(await ERC20.allowance(accounts[0].address, await HackItCore.YourTeam(accounts[0].address)) === BigInt(0)){
 		await ERC20.approve(await HackItCore.YourTeam(accounts[0].address), BigInt(0))
 	}
 
