@@ -635,7 +635,6 @@ function createBountiesDiv(bountiesArray) {
       const payoutEther = convertWeiToEther(bounty.Payout);
   
       // Apply bold and slightly bigger styling to the text
-      const style = 'font-weight: bold; font-size: 1.1em;';
   
       // Add information about the bounty to the div
       bountyDiv.innerHTML = `
